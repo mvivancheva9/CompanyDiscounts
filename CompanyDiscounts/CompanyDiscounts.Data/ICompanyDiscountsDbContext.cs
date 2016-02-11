@@ -13,18 +13,12 @@ namespace CompanyDiscounts.Data
     {
         int SaveChanges();
 
-        IDbSet<User> Users { get; set; }
-
-        IDbSet<Business> Businesses { get; set; }
-
-        IDbSet<BusinessLocation> BusinessLocations { get; set; }
-
-        IDbSet<Logo> Logos { get; set; }
-
         DbSet<TEntity> Set<TEntity>()
             where TEntity : class;
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity)
             where TEntity : class;
+
+        void ApplyAuditInfoRules();
     }
 }

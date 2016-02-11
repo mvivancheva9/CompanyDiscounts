@@ -1,15 +1,13 @@
-﻿// <copyright file="BusinessLocation.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace CompanyDiscounts.Models
+﻿namespace CompanyDiscounts.Models
 {
-    public class BusinessLocation
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using CommonModels;
+
+    public class BusinessLocation : BaseModel<int>
     {
-        public int ID { get; set; }
+        [Key]
+        public int Id { get; set; }
 
         public double Longitude { get; set; }
 

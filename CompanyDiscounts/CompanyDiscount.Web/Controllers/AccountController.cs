@@ -42,7 +42,6 @@ namespace CompanyDiscount.Web.Controllers
             private set { this.userManager = value; }
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -51,7 +50,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -81,7 +79,6 @@ namespace CompanyDiscount.Web.Controllers
             }
         }
 
-        //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
@@ -95,7 +92,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
-        //
         // POST: /Account/VerifyCode
         [HttpPost]
         [AllowAnonymous]
@@ -127,7 +123,6 @@ namespace CompanyDiscount.Web.Controllers
             }
         }
 
-        //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -135,7 +130,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View();
         }
 
-        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -165,7 +159,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View(model);
         }
 
-        //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
@@ -179,7 +172,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
-        //
         // GET: /Account/ForgotPassword
         [AllowAnonymous]
         public ActionResult ForgotPassword()
@@ -187,7 +179,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View();
         }
 
-        //
         // POST: /Account/ForgotPassword
         [HttpPost]
         [AllowAnonymous]
@@ -215,7 +206,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View(model);
         }
 
-        //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
@@ -223,7 +213,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View();
         }
 
-        //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
@@ -231,7 +220,6 @@ namespace CompanyDiscount.Web.Controllers
             return code == null ? this.View("Error") : this.View();
         }
 
-        //
         // POST: /Account/ResetPassword
         [HttpPost]
         [AllowAnonymous]
@@ -260,7 +248,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View();
         }
 
-        //
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
@@ -268,7 +255,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View();
         }
 
-        //
         // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
@@ -281,7 +267,6 @@ namespace CompanyDiscount.Web.Controllers
                 this.Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
         // GET: /Account/SendCode
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
@@ -299,7 +284,6 @@ namespace CompanyDiscount.Web.Controllers
                 this.View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
-        //
         // POST: /Account/SendCode
         [HttpPost]
         [AllowAnonymous]
@@ -322,7 +306,6 @@ namespace CompanyDiscount.Web.Controllers
                 new { Provider = model.SelectedProvider, model.ReturnUrl, model.RememberMe });
         }
 
-        //
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
@@ -354,7 +337,6 @@ namespace CompanyDiscount.Web.Controllers
             }
         }
 
-        //
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -396,7 +378,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.View(model);
         }
 
-        //
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -406,7 +387,6 @@ namespace CompanyDiscount.Web.Controllers
             return this.RedirectToAction("Index", "Home");
         }
 
-        //
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
@@ -477,7 +457,9 @@ namespace CompanyDiscount.Web.Controllers
             }
 
             public string LoginProvider { get; set; }
+
             public string RedirectUri { get; set; }
+
             public string UserId { get; set; }
 
             public override void ExecuteResult(ControllerContext context)

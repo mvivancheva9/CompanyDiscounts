@@ -6,9 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
-
 namespace CompanyDiscounts.Models
 {
     public class Logo
@@ -23,9 +22,12 @@ namespace CompanyDiscounts.Models
 
         public string Url { get; set; }
 
-        [Required]
-        public int BusinessId { get; set; }
+        public int? BusinessId { get; set; }
 
         public virtual Business Business { get; set; }
+
+        public int? CompanyId { get; set; }
+
+        public virtual Company Company { get; set; }
     }
 }

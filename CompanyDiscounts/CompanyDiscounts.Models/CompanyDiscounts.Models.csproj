@@ -61,6 +61,11 @@
   <ItemGroup>
     <Compile Include="Business.cs" />
     <Compile Include="BusinessLocation.cs" />
+    <Compile Include="CommonModels\BaseModel.cs" />
+    <Compile Include="CommonModels\IAuditInfo.cs" />
+    <Compile Include="CommonModels\IDeletableEntity.cs" />
+    <Compile Include="Company.cs" />
+    <Compile Include="CompanyBusiness.cs" />
     <Compile Include="Logo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />

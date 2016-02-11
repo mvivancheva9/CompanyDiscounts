@@ -1,18 +1,12 @@
-﻿// <copyright file="CompanyDiscountsDbContext.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CompanyDiscounts.Models;
-using System.Data.Entity;
-
-namespace CompanyDiscounts.Data
+﻿namespace CompanyDiscounts.Data
 {
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using System;
+    using System.Data.Entity;
+    using System.Linq;
+    using Models;
+    using Models.CommonModels;
+
     public class CompanyDiscountsDbContext : IdentityDbContext<User>, ICompanyDiscountsDbContext
     {
         public CompanyDiscountsDbContext()
@@ -20,15 +14,40 @@ namespace CompanyDiscounts.Data
         {
         }
 
-        public IDbSet<Business> Businesses { get; set; }
+        public IDbSet<Business> Business { get; set; }
 
-        public IDbSet<BusinessLocation> BusinessLocations { get; set; }
+        public IDbSet<BusinessLocation> BusinessLocation { get; set; }
 
-        public IDbSet<Logo> Logos { get; set; }
+        public IDbSet<Logo> Logo { get; set; }
+
+        public IDbSet<Company> Company { get; set; } 
+
+        public IDbSet<CompanyBusiness> CompanyBusiness { get; set; } 
 
         public static CompanyDiscountsDbContext Create()
         {
             return new CompanyDiscountsDbContext();
+        }
+
+        public void ApplyAuditInfoRules()
+        {
+            // Approach via @julielerman: http://bit.ly/123661P
+            foreach (var entry in
+                this.ChangeTracker.Entries()
+                    .Where(
+                        e =>
+                        e.Entity is IAuditInfo && ((e.State == EntityState.Added) || (e.State == EntityState.Modified))))
+            {
+                var entity = (IAuditInfo)entry.Entity;
+                if (entry.State == EntityState.Added && entity.CreatedOn == default(DateTime))
+                {
+                    entity.CreatedOn = DateTime.Now;
+                }
+                else
+                {
+                    entity.ModifiedOn = DateTime.Now;
+                }
+            }
         }
     }
 }

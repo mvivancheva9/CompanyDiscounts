@@ -1,24 +1,24 @@
-﻿// <copyright file="Business.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-namespace CompanyDiscounts.Models
+﻿namespace CompanyDiscounts.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using CommonModels;
 
-    public class Business
+    public class Business : BaseModel<int>
     {
         private ICollection<BusinessLocation> businessLocations;
         private ICollection<Logo> logos;
+        private ICollection<CompanyBusiness> companyBusiness; 
+
         public Business()
         {
             this.businessLocations = new HashSet<BusinessLocation>();
             this.logos = new HashSet<Logo>();
+            this.companyBusiness = new HashSet<CompanyBusiness>();
         }
 
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -29,12 +29,10 @@ namespace CompanyDiscounts.Models
         [Required]
         public string Description { get; set; }
 
-        public DateTime CreatedOn { get; set; }
+        public virtual ICollection<BusinessLocation> BusinessLocations { get; set; }
 
-        public DateTime ModifiedOn { get; set; }
+        public virtual ICollection<Logo> Logos { get; set; }
 
-        public virtual ICollection<BusinessLocation> BusinessLocation { get; set; }
-
-        public virtual ICollection<Logo> Logo { get; set; }
+        public virtual ICollection<CompanyBusiness> CompanyBusinesses { get; set; } 
     }
 }
