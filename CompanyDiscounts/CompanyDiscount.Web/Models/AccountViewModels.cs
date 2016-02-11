@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿// <copyright file="AccountViewModels.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CompanyDiscount.Web.Models
@@ -15,6 +19,9 @@ namespace CompanyDiscount.Web.Models
         public string ReturnUrl { get; set; }
     }
 
+    /// <summary>
+    /// Send Code View Model
+    /// </summary>
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }

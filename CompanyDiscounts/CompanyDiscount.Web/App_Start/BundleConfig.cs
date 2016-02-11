@@ -1,4 +1,8 @@
-﻿using System.Web;
+﻿// <copyright file="BundleConfig.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using System.Web;
 using System.Web.Optimization;
 
 namespace CompanyDiscount.Web

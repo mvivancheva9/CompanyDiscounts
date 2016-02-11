@@ -1,4 +1,8 @@
-﻿using Microsoft.Owin;
+﻿// <copyright file="Startup.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(CompanyDiscount.Web.Startup))]
@@ -8,7 +12,7 @@ namespace CompanyDiscount.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            this.ConfigureAuth(app);
         }
     }
 }

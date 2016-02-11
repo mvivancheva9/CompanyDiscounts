@@ -1,3 +1,7 @@
+// <copyright file="Configuration.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
 namespace CompanyDiscounts.Data.Migrations
 {
     using System;
@@ -5,7 +9,7 @@ namespace CompanyDiscounts.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<CompanyDiscounts.Data.CompanyDiscountsDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<CompanyDiscountsDbContext>
     {
         public Configuration()
         {
@@ -13,11 +17,11 @@ namespace CompanyDiscounts.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(CompanyDiscounts.Data.CompanyDiscountsDbContext context)
+        protected override void Seed(CompanyDiscountsDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            // This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            // You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data. E.g.
             //
             //    context.People.AddOrUpdate(

@@ -1,4 +1,8 @@
-﻿using CompanyDiscounts.Data;
+﻿// <copyright file="DbConfig.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using CompanyDiscounts.Data;
 using CompanyDiscounts.Data.Migrations;
 using System;
 using System.Collections.Generic;
@@ -7,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CompanyDiscount.Web.App_Start
+namespace CompanyDiscount.Web
 {
     public class DbConfig
     {

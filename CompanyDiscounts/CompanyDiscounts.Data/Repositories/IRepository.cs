@@ -1,9 +1,14 @@
-﻿namespace CompanyDiscounts.Data.Repositories
+﻿// <copyright file="IRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace CompanyDiscounts.Data.Repositories
 {
     using System;
     using System.Linq;
 
-    public interface IRepository<T> : IDisposable where T : class
+    public interface IRepository<T> : IDisposable
+        where T : class
     {
         IQueryable<T> All();
 

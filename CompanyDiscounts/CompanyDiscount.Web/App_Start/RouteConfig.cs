@@ -1,4 +1,8 @@
-﻿using System;
+﻿// <copyright file="RouteConfig.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +13,10 @@ namespace CompanyDiscount.Web
 {
     public class RouteConfig
     {
+        /// <summary>
+        /// Register Different Routes
+        /// </summary>
+        /// <param name="routes">routes</param>
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
