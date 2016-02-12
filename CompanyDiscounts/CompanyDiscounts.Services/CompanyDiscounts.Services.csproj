@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompaniesServices.cs" />
+    <Compile Include="Contracts\ICompaniesServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +53,16 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CompanyDiscounts.Data\CompanyDiscounts.Data.csproj">
+      <Project>{039dc1bf-edf5-4693-8dec-5aab1b7db73a}</Project>
+      <Name>CompanyDiscounts.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompanyDiscounts.Models\CompanyDiscounts.Models.csproj">
+      <Project>{ece65f18-3dc8-486b-9a8e-9550a8b947a0}</Project>
+      <Name>CompanyDiscounts.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

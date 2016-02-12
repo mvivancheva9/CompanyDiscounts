@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CompanyDiscounts.Models.CommonModels;
-
-namespace CompanyDiscounts.Models
+﻿namespace CompanyDiscounts.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using CommonModels;
+
     public class Company : BaseModel<int>
     {
         private ICollection<CompanyBusiness> companyBusinesses;

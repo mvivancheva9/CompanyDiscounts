@@ -20,7 +20,10 @@ namespace CompanyDiscount.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+                name: "Company",
+                url: "Company",
+                defaults: new { controller = "Company", action = "Index" });
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

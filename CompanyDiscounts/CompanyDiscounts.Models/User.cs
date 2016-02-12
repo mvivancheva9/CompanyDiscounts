@@ -1,15 +1,11 @@
-﻿// <copyright file="User.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-using System.Collections.Generic;
-
-namespace CompanyDiscounts.Models
+﻿namespace CompanyDiscounts.Models
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Security.Claims;
     using System.Threading.Tasks;
+    using System.Collections.Generic;
+
 
     public class User : IdentityUser
     {
