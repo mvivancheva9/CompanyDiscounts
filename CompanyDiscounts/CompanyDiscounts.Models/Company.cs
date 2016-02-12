@@ -11,12 +11,16 @@ namespace CompanyDiscounts.Models
     public class Company : BaseModel<int>
     {
         private ICollection<CompanyBusiness> companyBusinesses;
-        private ICollection<Logo> logos; 
+        private ICollection<Logo> logos;
+        private ICollection<UserSpecification> userSpecifications;
+        private ICollection<EmployeeBusiness> employeeBusinesses; 
 
         public Company()
         {
             this.companyBusinesses = new HashSet<CompanyBusiness>();
             this.logos = new HashSet<Logo>();
+            this.userSpecifications = new HashSet<UserSpecification>();
+            this.employeeBusinesses = new HashSet<EmployeeBusiness>();
         }
 
         [Key]
@@ -28,10 +32,10 @@ namespace CompanyDiscounts.Models
         [Required]
         public string Description { get; set; }
 
-        public virtual ICollection<CompanyBusiness> CompanyBusinesses { get; set; } 
+        public virtual ICollection<CompanyBusiness> CompanyBusinesses { get; set; }
 
-        public virtual ICollection<Logo> Logos { get; set; } 
+        public virtual ICollection<Logo> Logos { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual ICollection<UserSpecification> UserSpecification { get; set; }
     }
 }

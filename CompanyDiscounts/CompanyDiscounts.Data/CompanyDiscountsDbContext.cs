@@ -24,6 +24,12 @@
 
         public IDbSet<CompanyBusiness> CompanyBusiness { get; set; } 
 
+        public IDbSet<Employee> Employee { get; set; }
+        
+        public IDbSet<EmployeeBusiness> EmployeeBusiness { get; set; }
+        
+        public IDbSet<UserSpecification> UserSpecification { get; set; } 
+
         public static CompanyDiscountsDbContext Create()
         {
             return new CompanyDiscountsDbContext();
