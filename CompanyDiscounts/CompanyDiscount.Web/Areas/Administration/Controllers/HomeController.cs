@@ -6,16 +6,17 @@ using System.Web.Mvc;
 using CompanyDiscount.Web.ViewModels.Companies;
 using CompanyDiscounts.Services.Contracts;
 
-namespace CompanyDiscount.Web.Controllers
+namespace CompanyDiscount.Web.Areas.Administration.Controllers
 {
-    public class CompanyController : Controller
+    public class HomeController : Controller
     {
         private readonly ICompaniesServices companies;
 
-        public CompanyController(ICompaniesServices companies)
+        public HomeController(ICompaniesServices companies)
         {
             this.companies = companies;
         }
+       
         // GET: Company
         public ActionResult Index()
         {
@@ -23,8 +24,8 @@ namespace CompanyDiscount.Web.Controllers
 
             var viewModel = new CompanyDetailsViewModel()
             {
-                Name = "Some Name",
-                Description = "Some Description"
+                Name = company.Name,
+                Description = company.Description
             };
 
             return this.View(viewModel);

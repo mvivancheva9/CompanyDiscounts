@@ -35,6 +35,13 @@
             return new CompanyDiscountsDbContext();
         }
 
+        public override int SaveChanges()
+        {
+            this.ApplyAuditInfoRules();
+            return base.SaveChanges();
+        }
+
+
         public void ApplyAuditInfoRules()
         {
             // Approach via @julielerman: http://bit.ly/123661P
