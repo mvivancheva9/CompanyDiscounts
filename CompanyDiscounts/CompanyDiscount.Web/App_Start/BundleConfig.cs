@@ -61,6 +61,12 @@ namespace CompanyDiscount.Web
             bundles.Add(new ScriptBundle("~/bundles/front").Include(
                       "~/Scripts/FrontPageScripts/main.js"));
 
+            bundles.Add(new StyleBundle("~/Content/navigation").Include(
+                     "~/Content/navbar/navbar.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/navigation").Include(
+                      "~/Scripts/Navbar/navbar.js"));
+
         }
     }
 }
