@@ -53,8 +53,14 @@ namespace CompanyDiscount.Web
                       "~/Content/css/graph.css",
                       "~/Content/css/icon-font.min.css",
                       "~/Content/css/magnific-popup.css",
-                      "~/Content/css/style.css"
-                      ));
+                      "~/Content/css/style.css"));
+
+            bundles.Add(new StyleBundle("~/Content/front").Include(
+                     "~/Content/front-panel/main.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/front").Include(
+                      "~/Scripts/FrontPageScripts/main.js"));
+
         }
     }
 }

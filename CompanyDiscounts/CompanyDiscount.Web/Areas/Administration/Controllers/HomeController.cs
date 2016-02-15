@@ -5,11 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using CompanyDiscount.Web.ViewModels.Companies;
 using CompanyDiscounts.Services.Contracts;
+using Ninject;
 
 namespace CompanyDiscount.Web.Areas.Administration.Controllers
 {
     public class HomeController : Controller
     {
+        [Inject]
         private readonly ICompaniesServices companies;
 
         public HomeController(ICompaniesServices companies)
@@ -17,7 +19,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
             this.companies = companies;
         }
        
-        // GET: Company
+        [HttpGet]
         public ActionResult Index()
         {
             var company = this.companies.GetAll().FirstOrDefault();

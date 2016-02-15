@@ -256,6 +256,7 @@
     <Content Include="Content\css\icon-font.min.css" />
     <Content Include="Content\css\magnific-popup.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\front-panel\main.css" />
     <Content Include="images\1.jpg" />
     <Content Include="images\1.png" />
     <Content Include="images\2.jpg" />
@@ -266,6 +267,9 @@
     <Content Include="images\5.png" />
     <Content Include="images\6.png" />
     <Content Include="images\7.png" />
+    <Content Include="images\bg01.jpg" />
+    <Content Include="images\bg02.jpg" />
+    <Content Include="images\bg03.jpg" />
     <Content Include="images\lock.png" />
     <Content Include="images\search.png" />
     <Content Include="images\tick.png" />
@@ -330,6 +334,7 @@
     <Content Include="Content\fonts\WeatherIcons-Regular.otf" />
     <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
