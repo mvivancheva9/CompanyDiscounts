@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
      @Styles.Render("~/Content/admin")
+     @Styles.Render("~/Content/kendo")
+     @Scripts.Render("~/bundles/jquery")
     <script>
 		 new WOW().init();
     </script>
@@ -120,7 +122,8 @@
         <!--footer section end-->
     </section>
 
-    <!-- Bootstrap Core JavaScript -->
+<!-- Bootstrap Core JavaScript -->
     @Scripts.Render("~/bundles/admin")
+    @Scripts.Render("~/bundles/kendo")
 </body>
 </html>

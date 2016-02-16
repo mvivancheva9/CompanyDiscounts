@@ -2,8 +2,11 @@
 body {
   font-family: 'Open Sans', 'sans-serif';
 }
+.navbar {
+    padding-right: 30px;
+}
 .mega-dropdown {
-  position: static !important;
+    position: static !important;
 }
 .mega-dropdown-menu {
     padding: 20px 0px;
@@ -20,6 +23,7 @@ body {
 }
 .mega-dropdown-menu > li > ul > li > a {
   display: block;
+    z-index: 0;
   color: #222;
   padding: 3px 5px;
 }

@@ -9,13 +9,6 @@
 
     public class User : IdentityUser
     {
-        private ICollection<UserSpecification> userSpecifications;
-
-        public User()
-        {
-            this.userSpecifications = new HashSet<UserSpecification>();
-        }
-
         public ClaimsIdentity GenerateUserIdentity(UserManager<User> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -29,7 +22,5 @@
         {
             return Task.FromResult(this.GenerateUserIdentity(manager));
         }
-
-        public virtual ICollection<UserSpecification> UserSpecification { get; set; }
     }
 }

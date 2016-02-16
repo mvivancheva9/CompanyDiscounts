@@ -10,7 +10,6 @@
         private ICollection<BusinessLocation> businessLocations;
         private ICollection<Logo> logos;
         private ICollection<CompanyBusiness> companyBusiness;
-        private ICollection<UserSpecification> userSpecifications;
         private ICollection<EmployeeBusiness> employeeBusinesses; 
 
         public Business()
@@ -18,7 +17,6 @@
             this.businessLocations = new HashSet<BusinessLocation>();
             this.logos = new HashSet<Logo>();
             this.companyBusiness = new HashSet<CompanyBusiness>();
-            this.userSpecifications = new HashSet<UserSpecification>();
             this.employeeBusinesses = new HashSet<EmployeeBusiness>();
         }
 
@@ -38,8 +36,6 @@
         public virtual ICollection<Logo> Logos { get; set; }
 
         public virtual ICollection<CompanyBusiness> CompanyBusinesses { get; set; }
-
-        public virtual ICollection<UserSpecification> UserSpecification { get; set; }
 
         public virtual ICollection<EmployeeBusiness> EmployeeBusinesses { get; set; } 
     }

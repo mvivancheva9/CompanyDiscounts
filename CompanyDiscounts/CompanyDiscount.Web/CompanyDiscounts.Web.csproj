@@ -50,6 +50,18 @@
       <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DelegateDecompiler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <HintPath>..\packages\DelegateDecompiler.0.17.0\lib\net40-Client\DelegateDecompiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DelegateDecompiler.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=93b26a10a04705bd, processorArchitecture=MSIL">
+      <HintPath>..\packages\DelegateDecompiler.EntityFramework.0.17.0\lib\net45\DelegateDecompiler.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kendo.Mvc, Version=2016.1.112.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -83,6 +95,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mono.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Reflection.1.0.0.0\lib\Mono.Reflection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -227,9 +243,11 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administration\Models\CompanyUsersViewModel.cs" />
     <Compile Include="Areas\Business\BusinessAreaRegistration.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -256,7 +274,66 @@
     <Content Include="Content\css\icon-font.min.css" />
     <Content Include="Content\css\magnific-popup.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\digital-7-webfont.svg" />
+    <Content Include="Content\fonts\digital-7_italic-webfont.svg" />
+    <Content Include="Content\fonts\digital-7_mono-webfont.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\Linearicons-Free.svg" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.svg" />
     <Content Include="Content\front-panel\main.css" />
+    <Content Include="Content\KendoUI\Default\editor.png" />
+    <Content Include="Content\KendoUI\Default\imagebrowser.png" />
+    <Content Include="Content\KendoUI\Default\indeterminate.gif" />
+    <Content Include="Content\KendoUI\Default\loading-image.gif" />
+    <Content Include="Content\KendoUI\Default\loading.gif" />
+    <Content Include="Content\KendoUI\Default\loading_2x.gif" />
+    <Content Include="Content\KendoUI\Default\markers.png" />
+    <Content Include="Content\KendoUI\Default\markers_2x.png" />
+    <Content Include="Content\KendoUI\Default\slider-h.gif" />
+    <Content Include="Content\KendoUI\Default\slider-v.gif" />
+    <Content Include="Content\KendoUI\Default\sprite.png" />
+    <Content Include="Content\KendoUI\Default\sprite_2x.png" />
+    <Content Include="Content\KendoUI\Default\sprite_kpi.png" />
+    <Content Include="Content\KendoUI\Default\sprite_kpi_2x.png" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\KendoUI\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="Content\KendoUI\images\back.png" />
+    <Content Include="Content\KendoUI\images\kendoui.svg" />
+    <Content Include="Content\KendoUI\images\wp8_icons.png" />
+    <Content Include="Content\KendoUI\images\wp8_inverseicons.png" />
+    <Content Include="Content\KendoUI\kendo.common.min.css" />
+    <Content Include="Content\KendoUI\kendo.default.min.css" />
+    <Content Include="Content\KendoUI\textures\brushed-metal.png" />
+    <Content Include="Content\KendoUI\textures\dots1.png" />
+    <Content Include="Content\KendoUI\textures\dots10.png" />
+    <Content Include="Content\KendoUI\textures\dots11.png" />
+    <Content Include="Content\KendoUI\textures\dots12.png" />
+    <Content Include="Content\KendoUI\textures\dots13.png" />
+    <Content Include="Content\KendoUI\textures\dots2.png" />
+    <Content Include="Content\KendoUI\textures\dots3.png" />
+    <Content Include="Content\KendoUI\textures\dots4.png" />
+    <Content Include="Content\KendoUI\textures\dots5.png" />
+    <Content Include="Content\KendoUI\textures\dots6.png" />
+    <Content Include="Content\KendoUI\textures\dots7.png" />
+    <Content Include="Content\KendoUI\textures\dots8.png" />
+    <Content Include="Content\KendoUI\textures\dots9.png" />
+    <Content Include="Content\KendoUI\textures\glass-lighter.png" />
+    <Content Include="Content\KendoUI\textures\glass.png" />
+    <Content Include="Content\KendoUI\textures\highlight.png" />
+    <Content Include="Content\KendoUI\textures\hsv-gradient.png" />
+    <Content Include="Content\KendoUI\textures\hue.png" />
+    <Content Include="Content\KendoUI\textures\leather1.png" />
+    <Content Include="Content\KendoUI\textures\leather2.png" />
+    <Content Include="Content\KendoUI\textures\noise.png" />
+    <Content Include="Content\KendoUI\textures\stripe1.png" />
+    <Content Include="Content\KendoUI\textures\stripe2.png" />
+    <Content Include="Content\KendoUI\textures\stripe3.png" />
+    <Content Include="Content\KendoUI\textures\stripe4.png" />
+    <Content Include="Content\KendoUI\textures\stripe5.png" />
+    <Content Include="Content\KendoUI\textures\stripe6.png" />
+    <Content Include="Content\KendoUI\textures\transparency.png" />
+    <Content Include="Content\KendoUI\textures\transtexture.png" />
     <Content Include="Content\navbar\navbar.css" />
     <Content Include="images\1.jpg" />
     <Content Include="images\1.png" />
@@ -275,6 +352,8 @@
     <Content Include="images\search.png" />
     <Content Include="images\tick.png" />
     <Content Include="images\user.png" />
+    <Content Include="Libraries\Kendo.Mvc.dll" />
+    <Content Include="Libraries\Kendo.Mvc.xml" />
     <Content Include="Scripts\AdministrationScripts\bootstrap.min.js" />
     <Content Include="Scripts\AdministrationScripts\jquery-1.10.2.min.js" />
     <Content Include="Content\bootstrap.css" />
@@ -333,6 +412,49 @@
     <Content Include="fonts\weathericons-regular-webfont.ttf" />
     <Content Include="fonts\weathericons-regular-webfont.woff" />
     <Content Include="fonts\WeatherIcons-Regular.otf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\KendoUI\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\KendoUI\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="Content\KendoUI\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="Content\KendoUI\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="Content\KendoUI\images\kendoui.ttf" />
+    <Content Include="Content\KendoUI\images\kendoui.woff" />
+    <Content Include="Content\fonts\digital-7-webfont.eot" />
+    <Content Include="Content\fonts\digital-7-webfont.ttf" />
+    <Content Include="Content\fonts\digital-7-webfont.woff" />
+    <Content Include="Content\fonts\digital-7_italic-webfont.eot" />
+    <Content Include="Content\fonts\digital-7_italic-webfont.ttf" />
+    <Content Include="Content\fonts\digital-7_italic-webfont.woff" />
+    <Content Include="Content\fonts\digital-7_mono-webfont.eot" />
+    <Content Include="Content\fonts\digital-7_mono-webfont.ttf" />
+    <Content Include="Content\fonts\digital-7_mono-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\Linearicons-Free.eot" />
+    <Content Include="Content\fonts\Linearicons-Free.ttf" />
+    <Content Include="Content\fonts\Linearicons-Free.woff" />
+    <Content Include="Content\fonts\Linearicons-Free.woff2" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="Content\fonts\WeatherIcons-Regular.otf" />
     <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
@@ -343,6 +465,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.all.min.js" />
+    <Content Include="Scripts\KendoUI\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Navbar\navbar.js" />
     <Content Include="Scripts\respond.js" />
@@ -391,6 +515,10 @@
     <Folder Include="Areas\Employee\Controllers\" />
     <Folder Include="Areas\Employee\Models\" />
     <Folder Include="Areas\Employee\Views\Shared\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Users\" />
+    <Folder Include="Views\User\" />
+    <Folder Include="Views\Uss\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

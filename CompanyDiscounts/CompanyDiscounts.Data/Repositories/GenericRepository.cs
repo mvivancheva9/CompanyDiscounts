@@ -37,6 +37,11 @@ namespace CompanyDiscounts.Data.Repositories
             return this.DbSet.Find(id);
         }
 
+        public T GetById(string id)
+        {
+            return this.DbSet.Find(id);
+        }
+
         public virtual void Add(T entity)
         {
             DbEntityEntry entry = this.Context.Entry(entity);

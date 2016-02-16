@@ -17,7 +17,7 @@
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public UserSpecification UserSpecification { get; set; }
+        public User User { get; set; }
 
         public int CompanyId { get; set; }
 
