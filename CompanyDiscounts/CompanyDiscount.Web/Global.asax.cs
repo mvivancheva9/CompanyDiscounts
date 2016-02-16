@@ -1,4 +1,7 @@
-﻿namespace CompanyDiscount.Web
+﻿using System.Reflection;
+using CompanyDiscount.Web.Infrastructure.Mapping;
+
+namespace CompanyDiscount.Web
 {
     using System.Web;
     using System.Web.Mvc;
@@ -15,6 +18,9 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DbConfig.Initialize();
+
+            var autoMapperConfig = new AutoMapperConfig();
+            autoMapperConfig.Execute(Assembly.GetExecutingAssembly());
         }
     }
 }

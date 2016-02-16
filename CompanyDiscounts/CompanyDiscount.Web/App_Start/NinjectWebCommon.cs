@@ -1,5 +1,9 @@
+using System.Reflection;
+using CompanyDiscount.Web.Controllers;
+using CompanyDiscount.Web.Infrastructure.Mapping;
 using CompanyDiscounts.Data;
 using CompanyDiscounts.Data.Repositories;
+using Ninject.Web.Mvc;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(CompanyDiscount.Web.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(CompanyDiscount.Web.App_Start.NinjectWebCommon), "Stop")]
@@ -71,6 +75,7 @@ namespace CompanyDiscount.Web.App_Start
             kernel.Bind(b => b.From("CompanyDiscounts.Services")
                               .SelectAllClasses()
                               .BindDefaultInterface());
+
         }
     }
 }
