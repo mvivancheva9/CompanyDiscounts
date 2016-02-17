@@ -17,7 +17,12 @@
 
         public IQueryable<Company> GetAll()
         {
-           return this.companies.All();
+           return this.companies.All().Where(c => c.IsDeleted == false);
+        }
+
+        public IQueryable<Company> GetDeleted()
+        {
+            return this.companies.All().Where(c => c.IsDeleted);
         }
 
         public Company UpdateById(int id, string name, string description)
@@ -27,6 +32,21 @@
             companyToUpdate.Name = name;
 
             companyToUpdate.Description = description;
+
+            this.companies.SaveChanges();
+
+            return companyToUpdate;
+        }
+
+        public Company UpdateDeletedById(int id, string name, string description, bool isDeleted)
+        {
+            var companyToUpdate = this.companies.GetById(id);
+
+            companyToUpdate.Name = name;
+
+            companyToUpdate.Description = description;
+
+            companyToUpdate.IsDeleted = isDeleted;
 
             this.companies.SaveChanges();
 

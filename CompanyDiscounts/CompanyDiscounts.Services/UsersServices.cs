@@ -25,7 +25,7 @@ namespace CompanyDiscounts.Services
 
         public User Update(User user)
         {
-            var userToUpdate = this.users.GetById(user.Id);
+            var userToUpdate = this.users.GetByName(user.UserName);
 
             userToUpdate.UserName = user.UserName;
 
@@ -36,7 +36,7 @@ namespace CompanyDiscounts.Services
 
         public User DeleteById(string id)
         {
-            var userToDelete = this.users.GetById(id);
+            var userToDelete = this.users.GetByName(id);
 
             this.users.Delete(userToDelete);
 
@@ -59,9 +59,9 @@ namespace CompanyDiscounts.Services
             return newUser;
         }
 
-        public User GetById(string id)
+        public User GetByName(string id)
         {
-            var user = this.users.GetById(id);
+            var user = this.users.GetByName(id);
 
             return user;
         }

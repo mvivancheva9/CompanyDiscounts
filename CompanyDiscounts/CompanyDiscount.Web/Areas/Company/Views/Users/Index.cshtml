@@ -1,11 +1,15 @@
 ﻿@using Kendo.Mvc.UI
 
-@(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Administration.Models.CompanyUsersViewModel>()
+
+@section Styles {
+    @Styles.Render("~/Content/kendo")
+}
+
+@(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Company.Models.CompanyUsersAddViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
-        columns.Bound(c => c.Username);
-        columns.Bound(c => c.Password);
+        columns.Bound(c => c.Email);
         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
       .ToolBar(toolbar => {
@@ -25,4 +29,9 @@
           .Update(update => update.Action("CompanyUsersViewModels_Update", "Users"))
           .Destroy(destroy => destroy.Action("CompanyUsersViewModels_Destroy", "Users"))
       )
-)
+      )
+
+@section Scripts {
+   @Scripts.Render("~/bundles/kendo")
+}
+

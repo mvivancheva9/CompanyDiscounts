@@ -1,0 +1,30 @@
+﻿@section Styles {
+    @Styles.Render("~/Content/kendo")
+}
+
+@(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Administration.Models.DeletedCompaniesViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.Description);
+        columns.Bound(c => c.IsDeleted);
+        columns.Command(command => { command.Edit(); }).Width(180);
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("CompaniesViewModels_Read", "DeleteCompanies"))
+          .Update(update => update.Action("CompaniesViewModels_Update", "DeleteCompanies"))
+      )
+)
+@section Scripts {
+    @Scripts.Render("~/bundles/kendo")
+}

@@ -1,0 +1,36 @@
+﻿@section Styles {
+    @Styles.Render("~/Content/kendo")
+}
+
+<input type="button" id="DeletedCompanies" title="Deleted Companies" value="Deleted Companies" onclick="window.location.href='@Url.Action("Index", "DeleteCompanies")'"/>
+<hr/>
+<h1>Currently Active Companies</h1>
+@(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Administration.Models.CompaniesViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Name);
+        columns.Bound(c => c.Description);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar => {
+            toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.MultipleColumn);
+      })
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("CompanyDetailsViewModels_Read", "Companies"))
+          .Create(create => create.Action("CompanyDetailsViewModels_Create", "Companies"))
+          .Update(update => update.Action("CompanyDetailsViewModels_Update", "Companies"))
+          .Destroy(destroy => destroy.Action("CompanyDetailsViewModels_Destroy", "Companies"))
+      )
+      )
+@section Scripts {
+    @Scripts.Render("~/bundles/kendo")
+}

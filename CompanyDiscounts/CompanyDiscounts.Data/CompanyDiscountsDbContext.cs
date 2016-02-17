@@ -20,12 +20,12 @@
 
         public IDbSet<Logo> Logo { get; set; }
 
-        public IDbSet<Company> Company { get; set; } 
+        public IDbSet<Company> Company { get; set; }
 
-        public IDbSet<CompanyBusiness> CompanyBusiness { get; set; } 
+        public IDbSet<CompanyBusiness> CompanyBusiness { get; set; }
 
         public IDbSet<Employee> Employee { get; set; }
-        
+
         public IDbSet<EmployeeBusiness> EmployeeBusiness { get; set; }
 
         public static CompanyDiscountsDbContext Create()

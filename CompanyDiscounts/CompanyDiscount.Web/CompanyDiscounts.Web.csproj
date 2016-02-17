@@ -241,10 +241,22 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\ViewEnginesConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\AdminBaseController.cs" />
+    <Compile Include="Areas\Administration\Controllers\BusinessesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CompaniesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\DeleteCompaniesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\DeletedBusinessesController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
-    <Compile Include="Areas\Administration\Models\CompanyUsersViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\BusinessesViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\CompaniesViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\DeletedBusinessesViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\DeletedCompaniesViewModel.cs" />
+    <Compile Include="Areas\Company\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Company\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Company\Models\CompanyUsersAddViewModel.cs" />
+    <Compile Include="Areas\Company\Models\CompanyUsersViewModel.cs" />
     <Compile Include="Areas\Business\BusinessAreaRegistration.cs" />
+    <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -262,7 +274,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Areas\Administration\Models\CompanyDetailsViewModel.cs" />
+    <Compile Include="Areas\Company\Models\CompanyDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\animate.css" />
@@ -389,7 +401,7 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Company\Views\Home\Index.cshtml" />
     <Content Include="fonts\digital-7-webfont.eot" />
     <Content Include="fonts\digital-7-webfont.ttf" />
     <Content Include="fonts\digital-7-webfont.woff" />
@@ -455,7 +467,27 @@
     <Content Include="Content\fonts\weathericons-regular-webfont.ttf" />
     <Content Include="Content\fonts\weathericons-regular-webfont.woff" />
     <Content Include="Content\fonts\WeatherIcons-Regular.otf" />
-    <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Company\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Company\Views\web.config" />
+    <Content Include="Areas\Company\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Company\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Companies\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Administration\Views\DeleteCompanies\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Businesses\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\DeletedBusinesses\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -509,16 +541,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administration\Views\AdminBase\" />
     <Folder Include="Areas\Business\Controllers\" />
     <Folder Include="Areas\Business\Models\" />
     <Folder Include="Areas\Business\Views\Shared\" />
     <Folder Include="Areas\Employee\Controllers\" />
     <Folder Include="Areas\Employee\Models\" />
     <Folder Include="Areas\Employee\Views\Shared\" />
-    <Folder Include="Views\Base\" />
-    <Folder Include="Views\Users\" />
-    <Folder Include="Views\User\" />
-    <Folder Include="Views\Uss\" />
+    <Folder Include="Views\Businesses\" />
+    <Folder Include="Views\Companies\" />
+    <Folder Include="Views\DeleteCompanies\" />
+    <Folder Include="Views\DeletedBusinesses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

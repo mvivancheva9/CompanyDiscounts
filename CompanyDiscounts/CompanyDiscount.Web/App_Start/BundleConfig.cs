@@ -31,7 +31,6 @@ namespace CompanyDiscount.Web
                      "~/Scripts/AdministrationScripts/bootstrap.min.js",
                      "~/Scripts/AdministrationScripts/Chart.js",
                      "~/Scripts/AdministrationScripts/classie.js",
-                     "~/Scripts/AdministrationScripts/jquery-1.10.2.min.js",
                      "~/Scripts/AdministrationScripts/jquery.flexisel.js",
                      "~/Scripts/AdministrationScripts/jquery.flot.min.js",
                      "~/Scripts/AdministrationScripts/jquery.nicescroll.js",

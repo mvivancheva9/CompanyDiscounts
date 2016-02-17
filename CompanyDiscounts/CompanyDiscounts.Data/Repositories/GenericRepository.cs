@@ -37,9 +37,9 @@ namespace CompanyDiscounts.Data.Repositories
             return this.DbSet.Find(id);
         }
 
-        public T GetById(string id)
+        public T GetByName(string username)
         {
-            return this.DbSet.Find(id);
+            return this.DbSet.Find(username);
         }
 
         public virtual void Add(T entity)
