@@ -4,5 +4,19 @@
     Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div id="page-wrapper">
+    <div class="graphs">
+        <div class="col_3">
+            @{
+                Html.RenderAction("NewCompanies", "PartialViews");
+                Html.RenderAction("NewBusinesses", "PartialViews");
+            }
+            @Html.Partial("../PartialViews/Visitors")
+            @Html.Partial("../PartialViews/Likes")
+
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
 

@@ -247,6 +247,7 @@
     <Compile Include="Areas\Administration\Controllers\DeleteCompaniesController.cs" />
     <Compile Include="Areas\Administration\Controllers\DeletedBusinessesController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administration\Controllers\PartialViewsController.cs" />
     <Compile Include="Areas\Administration\Models\BusinessesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\CompaniesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\DeletedBusinessesViewModel.cs" />
@@ -488,6 +489,10 @@
     <Content Include="Areas\Administration\Views\DeleteCompanies\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Businesses\Index.cshtml" />
     <Content Include="Areas\Administration\Views\DeletedBusinesses\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\PartialViews\NewCompanies.cshtml" />
+    <Content Include="Areas\Administration\Views\PartialViews\NewBusinesses.cshtml" />
+    <Content Include="Areas\Administration\Views\PartialViews\Visitors.cshtml" />
+    <Content Include="Areas\Administration\Views\PartialViews\Likes.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

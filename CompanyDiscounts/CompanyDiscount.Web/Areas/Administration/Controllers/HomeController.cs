@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CompanyDiscounts.Services.Contracts;
 
 namespace CompanyDiscount.Web.Areas.Administration.Controllers
 {
@@ -12,7 +13,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
         // GET: Administration/Home
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
     }
 }
