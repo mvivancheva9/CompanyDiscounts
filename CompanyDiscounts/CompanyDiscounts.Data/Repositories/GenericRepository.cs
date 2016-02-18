@@ -37,6 +37,11 @@ namespace CompanyDiscounts.Data.Repositories
             return this.DbSet.Find(id);
         }
 
+        public virtual T GetById(string id)
+        {
+            return this.DbSet.Find(id);
+        }
+
         public T GetByName(string username)
         {
             return this.DbSet.Find(username);

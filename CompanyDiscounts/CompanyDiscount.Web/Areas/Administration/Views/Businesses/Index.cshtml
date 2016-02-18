@@ -2,23 +2,32 @@
     @Styles.Render("~/Content/kendo")
 }
 
-<input type="button" id="DeletedBusinesses"value="Deleted Businesses" onclick="window.location.href='@Url.Action("Index", "DeletedBusinesses")'" />
+<input type="button" id="DeletedBusinesses" value="Deleted Businesses" onclick="window.location.href='@Url.Action("Index", "DeletedBusinesses")'" />
 <hr />
 <h1>Currently Active Businesses</h1>
 @(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Administration.Models.BusinessesViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
-        columns.Bound(c => c.Name);
-        columns.Bound(c => c.Description);
-        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.Description);
+          columns.Bound(c => c.Category);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
-      .ToolBar(toolbar => {
-            toolbar.Create();
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
       })
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
-      .Sortable(sortable => {
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Events(ev => ev.Change("doOnRowSelect"))
+      .Sortable(sortable =>
+      {
           sortable.SortMode(GridSortMode.MultipleColumn);
       })
       .Filterable()
@@ -33,5 +42,21 @@
       )
 )
 @section Scripts {
+    <script>
+        function doOnRowSelect(e) {
+            var grid = $("#grid").data("kendoGrid");
+            var selectedItem = grid.dataItem(grid.select());
+            var item = { "Id": selectedItem.Id, "Name": selectedItem.Name, "IsDeleted": selectedItem.IsDeleted };
+
+            $.ajax({
+                type: "POST",
+                data: item,
+                url: '@Url.Action("Load", "BusinessDetails")',
+                success: function (result) {
+                    window.location = '@Url.Action("Index", "BusinessDetails")' + "?id=" + item.Id;
+                }
+            });
+        }
+    </script>
     @Scripts.Render("~/bundles/kendo")
 }

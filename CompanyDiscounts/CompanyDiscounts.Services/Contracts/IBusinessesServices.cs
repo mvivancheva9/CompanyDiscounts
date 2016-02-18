@@ -18,5 +18,7 @@
         Business Create(string name, string description);
 
         Business GetById(int id);
+
+        Business UpdateById(int id, string userId);
     }
 }

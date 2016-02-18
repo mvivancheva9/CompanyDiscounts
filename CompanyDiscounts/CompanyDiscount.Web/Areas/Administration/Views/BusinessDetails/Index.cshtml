@@ -1,0 +1,14 @@
+﻿@model CompanyDiscount.Web.Areas.Administration.Models.BusinessesViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Users for @Model.Name business</h2>
+@{
+    Html.RenderAction("AddBusinessUser", "PartialViews", new { id = @Model.Id });
+}
+
+
+
+

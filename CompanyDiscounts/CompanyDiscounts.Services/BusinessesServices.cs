@@ -87,5 +87,16 @@ namespace CompanyDiscounts.Services
         {
             return this.businesses.GetById(id);
         }
+
+        public Business UpdateById(int id, string userId)
+        {
+            var businessToUpdate = this.businesses.GetById(id);
+
+            businessToUpdate.UserId = userId;
+
+            this.businesses.SaveChanges();
+
+            return businessToUpdate;
+        }
     }
 }

@@ -18,5 +18,7 @@ namespace CompanyDiscounts.Services.Contracts
         User Create(User user);
 
         User GetByName(string username);
+
+        User GetById(string id);
     }
 }

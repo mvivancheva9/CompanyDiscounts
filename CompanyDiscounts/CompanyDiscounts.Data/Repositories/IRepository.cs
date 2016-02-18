@@ -14,6 +14,8 @@ namespace CompanyDiscounts.Data.Repositories
 
         T GetById(int id);
 
+        T GetById(string id);
+
         T GetByName(string username);
 
         void Add(T entity);

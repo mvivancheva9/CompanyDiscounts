@@ -65,5 +65,12 @@ namespace CompanyDiscounts.Services
 
             return user;
         }
+
+        public User GetById(string id)
+        {
+            var user = this.users.GetById(id);
+
+            return user;
+        }
     }
 }

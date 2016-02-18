@@ -17,10 +17,12 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
     public class BusinessesController : Controller
     {
         private readonly IBusinessesServices businesses;
+        private readonly ICategoriesServices categories;
 
-        public BusinessesController(IBusinessesServices businesses)
+        public BusinessesController(IBusinessesServices businesses, ICategoriesServices categories)
         {
             this.businesses = businesses;
+            this.categories = categories;
         }
 
         public ActionResult Index()
@@ -35,7 +37,8 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
             {
                 Id = businessesViewModel.Id,
                 Name = businessesViewModel.Name,
-                Description = businessesViewModel.Description
+                Description = businessesViewModel.Description,
+                Category = businessesViewModel.Category
             });
 
             return Json(result);
@@ -49,7 +52,8 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                 var entity = new BusinessesViewModel
                 {
                     Name = businessesViewModel.Name,
-                    Description = businessesViewModel.Description
+                    Description = businessesViewModel.Description,
+                    Category = businessesViewModel.Category
                 };
 
                 this.businesses.Create(entity.Name, entity.Description);
@@ -68,7 +72,8 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                 {
                     Id = businessesViewModel.Id,
                     Name = businessesViewModel.Name,
-                    Description = businessesViewModel.Description
+                    Description = businessesViewModel.Description,
+                    Category = businessesViewModel.Category
                 };
                 this.businesses.UpdateById(entity.Id, entity.Name, entity.Description);
             }
@@ -85,7 +90,8 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                 {
                     Id = businessesViewModel.Id,
                     Name = businessesViewModel.Name,
-                    Description = businessesViewModel.Description
+                    Description = businessesViewModel.Description,
+                    Category = businessesViewModel.Category
                 };
 
                 this.businesses.DeleteById(entity.Id);
