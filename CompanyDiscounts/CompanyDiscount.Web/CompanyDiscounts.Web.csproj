@@ -243,12 +243,14 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminBaseController.cs" />
     <Compile Include="Areas\Administration\Controllers\BusinessesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\CompaniesController.cs" />
     <Compile Include="Areas\Administration\Controllers\DeleteCompaniesController.cs" />
     <Compile Include="Areas\Administration\Controllers\DeletedBusinessesController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\PartialViewsController.cs" />
     <Compile Include="Areas\Administration\Models\BusinessesViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\CategoriesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\CompaniesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\DeletedBusinessesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\DeletedCompaniesViewModel.cs" />
@@ -493,6 +495,7 @@
     <Content Include="Areas\Administration\Views\PartialViews\NewBusinesses.cshtml" />
     <Content Include="Areas\Administration\Views\PartialViews\Visitors.cshtml" />
     <Content Include="Areas\Administration\Views\PartialViews\Likes.cshtml" />
+    <Content Include="Areas\Administration\Views\Categories\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -554,6 +557,7 @@
     <Folder Include="Areas\Employee\Models\" />
     <Folder Include="Areas\Employee\Views\Shared\" />
     <Folder Include="Views\Businesses\" />
+    <Folder Include="Views\Categories\" />
     <Folder Include="Views\Companies\" />
     <Folder Include="Views\DeleteCompanies\" />
     <Folder Include="Views\DeletedBusinesses\" />

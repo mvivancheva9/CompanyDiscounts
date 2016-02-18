@@ -28,6 +28,8 @@
 
         public IDbSet<EmployeeBusiness> EmployeeBusiness { get; set; }
 
+        public IDbSet<Category> Categories { get; set; }
+
         public static CompanyDiscountsDbContext Create()
         {
             return new CompanyDiscountsDbContext();

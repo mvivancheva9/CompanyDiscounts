@@ -2,17 +2,12 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using CompanyDiscounts.Data;
-using CompanyDiscounts.Data.Migrations;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace CompanyDiscount.Web
 {
+    using System.Data.Entity;
+    using CompanyDiscounts.Data;
+    using CompanyDiscounts.Data.Migrations;
+
     public class DbConfig
     {
         public static void Initialize()

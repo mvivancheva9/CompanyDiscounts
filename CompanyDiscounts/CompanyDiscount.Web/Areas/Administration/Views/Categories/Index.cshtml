@@ -1,0 +1,40 @@
+﻿@section Styles {
+    @Styles.Render("~/Content/kendo")
+}
+@(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Administration.Models.CategoriesViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+          columns.Bound(c => c.Name);
+          columns.Bound(c => c.IsDeleted);
+          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+      })
+      .ToolBar(toolbar =>
+      {
+          toolbar.Create();
+      })
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
+      .Pageable()
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Sortable(sortable =>
+      {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Filterable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Model(model => model.Id(p => p.Id))
+          .Read(read => read.Action("CategoriesViewModels_Read", "Categories"))
+          .Create(create => create.Action("CategoriesViewModels_Create", "Categories"))
+          .Update(update => update.Action("CategoriesViewModels_Update", "Categories"))
+          .Destroy(destroy => destroy.Action("CategoriesViewModels_Destroy", "Categories"))
+      )
+)
+@section Scripts {
+    @Scripts.Render("~/bundles/kendo")
+}

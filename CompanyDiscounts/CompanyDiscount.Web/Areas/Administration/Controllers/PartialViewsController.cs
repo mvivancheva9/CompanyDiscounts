@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using CompanyDiscounts.Services.Contracts;
-
-namespace CompanyDiscount.Web.Areas.Administration.Controllers
+﻿namespace CompanyDiscount.Web.Areas.Administration.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using CompanyDiscounts.Services.Contracts;
+
     public class PartialViewsController : Controller
     {
         private readonly ICompaniesServices companies;

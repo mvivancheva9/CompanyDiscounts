@@ -60,9 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessesServices.cs" />
+    <Compile Include="CategoriesServices.cs" />
     <Compile Include="CompaniesServices.cs" />
     <Compile Include="Contracts\IBusinessesServices.cs" />
     <Compile Include="Contracts\ICacheService.cs" />
+    <Compile Include="Contracts\ICategoriesServices.cs" />
     <Compile Include="Contracts\ICompaniesServices.cs" />
     <Compile Include="Contracts\IUsersServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
