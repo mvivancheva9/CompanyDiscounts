@@ -38,6 +38,17 @@
             return companyToUpdate;
         }
 
+        public Company UpdateById(int id, string userId)
+        {
+            var companyToUpdate = this.companies.GetById(id);
+
+            companyToUpdate.UserId = userId;
+
+            this.companies.SaveChanges();
+
+            return companyToUpdate;
+        }
+
         public Company UpdateDeletedById(int id, string name, string description, bool isDeleted)
         {
             var companyToUpdate = this.companies.GetById(id);

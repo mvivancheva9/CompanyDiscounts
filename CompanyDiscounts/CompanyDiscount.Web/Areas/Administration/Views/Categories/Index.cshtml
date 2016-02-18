@@ -15,11 +15,6 @@
       })
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
-      .Selectable(selectable =>
-      {
-          selectable.Mode(GridSelectionMode.Single);
-          selectable.Type(GridSelectionType.Row);
-      })
       .Sortable(sortable =>
       {
           sortable.SortMode(GridSortMode.SingleColumn);
@@ -37,4 +32,5 @@
 )
 @section Scripts {
     @Scripts.Render("~/bundles/kendo")
+
 }

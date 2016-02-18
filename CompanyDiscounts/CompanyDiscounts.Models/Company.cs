@@ -1,4 +1,6 @@
-﻿namespace CompanyDiscounts.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CompanyDiscounts.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -29,5 +31,10 @@
         public virtual ICollection<CompanyBusiness> CompanyBusinesses { get; set; }
 
         public virtual ICollection<Logo> Logos { get; set; }
+
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public User User { get; set; }
     }
 }

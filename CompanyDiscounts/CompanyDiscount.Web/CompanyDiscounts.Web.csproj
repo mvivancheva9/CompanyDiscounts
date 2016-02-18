@@ -245,6 +245,7 @@
     <Compile Include="Areas\Administration\Controllers\BusinessesController.cs" />
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
     <Compile Include="Areas\Administration\Controllers\CompaniesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CompanyDetailsController.cs" />
     <Compile Include="Areas\Administration\Controllers\DeleteCompaniesController.cs" />
     <Compile Include="Areas\Administration\Controllers\DeletedBusinessesController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Areas\Administration\Models\BusinessesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\CategoriesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\CompaniesViewModel.cs" />
+    <Compile Include="Areas\Administration\Models\CompanyUsersAddViewModel.cs" />
     <Compile Include="Areas\Administration\Models\DeletedBusinessesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\DeletedCompaniesViewModel.cs" />
     <Compile Include="Areas\Company\Controllers\HomeController.cs" />
@@ -496,6 +498,9 @@
     <Content Include="Areas\Administration\Views\PartialViews\Visitors.cshtml" />
     <Content Include="Areas\Administration\Views\PartialViews\Likes.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\CompanyDetails\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\PartialViews\AddCompanyUser.cshtml" />
+    <Content Include="Areas\Administration\Views\PartialViews\CompanyUserDetails.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

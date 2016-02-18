@@ -1,21 +1,14 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
-using CompanyDiscount.Web.Areas.Administration.Models;
-﻿using CompanyDiscount.Web.Controllers;
-﻿using CompanyDiscount.Web.Infrastructure.Mapping;
-﻿using CompanyDiscounts.Models;
-﻿using CompanyDiscounts.Services.Contracts;
-
-namespace CompanyDiscount.Web.Areas.Administration.Controllers
+﻿namespace CompanyDiscount.Web.Areas.Administration.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
+    using Models;
+    using Web.Controllers;
+    using Infrastructure.Mapping;
+    using CompanyDiscounts.Services.Contracts;
+
     public class CategoriesController : BaseController
     {
         private readonly ICategoriesServices cateogries;

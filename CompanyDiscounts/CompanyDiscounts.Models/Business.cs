@@ -43,5 +43,10 @@
 
         [ForeignKey("CategoryId")]
         public virtual Category Category { get; set; }
+
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public User User { get; set; }
     }
 }

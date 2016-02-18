@@ -14,11 +14,17 @@ namespace CompanyDiscount.Web.Areas.Administration
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
+            
             context.MapRoute(
                 "Administration_default",
                 "Administration/{controller}/{action}/{id}",
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            context.MapRoute(
+               "CategoryDetails",
+               "Administration/{controller}/{action}/{id}",
+               new { controller = "CategoryDetails", action = "Index", id = UrlParameter.Optional }
+           );
         }
     }
 }

@@ -18,6 +18,12 @@
       })
       .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
+      .Selectable(selectable =>
+      {
+          selectable.Mode(GridSelectionMode.Single);
+          selectable.Type(GridSelectionType.Row);
+      })
+      .Events(ev => ev.Change("doOnRowSelect"))
       .Sortable(sortable => {
           sortable.SortMode(GridSortMode.MultipleColumn);
       })
@@ -32,5 +38,21 @@
       )
       )
 @section Scripts {
+<script>
+        function doOnRowSelect(e) {
+            var grid = $("#grid").data("kendoGrid");
+            var selectedItem = grid.dataItem(grid.select());
+            var item = { "Id": selectedItem.Id, "Name": selectedItem.Name, "IsDeleted": selectedItem.IsDeleted };
+
+            $.ajax({
+                type: "POST",
+                data: item,
+                url: '@Url.Action("Load", "CompanyDetails")',
+                success: function (result) {
+                    window.location = '@Url.Action("Index", "CompanyDetails")'+ "?id="+ item.Id;
+                }
+            });
+        }
+</script>
     @Scripts.Render("~/bundles/kendo")
 }

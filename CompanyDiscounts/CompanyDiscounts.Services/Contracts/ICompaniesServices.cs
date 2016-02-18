@@ -12,6 +12,8 @@ namespace CompanyDiscounts.Services.Contracts
 
         Company UpdateById(int id, string name, string description);
 
+        Company UpdateById(int id, string userId);
+
         Company UpdateDeletedById(int id, string name, string description, bool isDeleted);
 
         Company DeleteById(int id);
