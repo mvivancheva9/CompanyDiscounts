@@ -88,6 +88,13 @@ namespace CompanyDiscounts.Services
             return this.businesses.GetById(id);
         }
 
+        public Business GetByUserId(string userId)
+        {
+            var currentBusiness = this.businesses.All().Where(b => b.UserId == userId).FirstOrDefault();
+
+            return currentBusiness;
+        }
+
         public Business UpdateById(int id, string userId)
         {
             var businessToUpdate = this.businesses.GetById(id);

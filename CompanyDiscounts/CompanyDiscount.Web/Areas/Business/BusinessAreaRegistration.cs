@@ -17,7 +17,7 @@ namespace CompanyDiscount.Web.Areas.Business
             context.MapRoute(
                 "Business_default",
                 "Business/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
