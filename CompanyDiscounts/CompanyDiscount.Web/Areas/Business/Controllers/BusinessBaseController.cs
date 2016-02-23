@@ -13,16 +13,5 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
     [Authorize(Roles = "Business")]
     public class BusinessBaseController : BaseController
     {
-        private IBusinessesServices businesses;
-
-        public BusinessBaseController(IBusinessesServices businesses)
-        {
-            this.businesses = businesses;
-        }
-
-        protected BusinessesViewModel CurrentBusiness()
-        {
-            return this.Mapper.Map<BusinessesViewModel>(this.businesses.GetByUserId(this.User.Identity.GetUserId()));
-        }
     }
 }

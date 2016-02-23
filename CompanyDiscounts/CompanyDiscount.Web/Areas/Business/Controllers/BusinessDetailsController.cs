@@ -15,7 +15,7 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
             return View();
         }
 
-        public BusinessDetailsController(IBusinessesServices businesses) : base(businesses)
+        public BusinessDetailsController(IBusinessesServices businesses)
         {
         }
     }

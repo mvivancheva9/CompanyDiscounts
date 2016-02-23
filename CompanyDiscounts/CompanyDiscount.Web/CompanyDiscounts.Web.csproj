@@ -258,10 +258,14 @@
     <Compile Include="Areas\Administration\Models\CompanyUsersAddViewModel.cs" />
     <Compile Include="Areas\Administration\Models\DeletedBusinessesViewModel.cs" />
     <Compile Include="Areas\Administration\Models\DeletedCompaniesViewModel.cs" />
+    <Compile Include="Areas\Business\Controllers\AddBusinessLocationsController.cs" />
     <Compile Include="Areas\Business\Controllers\BusinessBaseController.cs" />
     <Compile Include="Areas\Business\Controllers\BusinessDetailsController.cs" />
     <Compile Include="Areas\Business\Controllers\BusinessLocationsController.cs" />
     <Compile Include="Areas\Business\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Business\Models\BusinessDetailsViewModel.cs" />
+    <Compile Include="Areas\Business\Models\BusinessLocationsViewModel.cs" />
+    <Compile Include="Areas\Business\Models\PinViewModel.cs" />
     <Compile Include="Areas\Company\Controllers\HomeController.cs" />
     <Compile Include="Areas\Company\Controllers\UsersController.cs" />
     <Compile Include="Areas\Company\Models\CompanyUsersAddViewModel.cs" />
@@ -516,6 +520,7 @@
     <Content Include="Areas\Business\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Business\Views\BusinessDetails\Index.cshtml" />
     <Content Include="Areas\Business\Views\BusinessLocations\Index.cshtml" />
+    <Content Include="Areas\Business\Views\AddBusinessLocations\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -570,11 +575,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\AdminBase\" />
-    <Folder Include="Areas\Business\Models\" />
     <Folder Include="Areas\Employee\Controllers\" />
     <Folder Include="Areas\Employee\Models\" />
     <Folder Include="Areas\Employee\Views\Shared\" />
     <Folder Include="Views\Businesses\" />
+    <Folder Include="Views\BusinessLocations\" />
     <Folder Include="Views\Categories\" />
     <Folder Include="Views\Companies\" />
     <Folder Include="Views\DeleteCompanies\" />

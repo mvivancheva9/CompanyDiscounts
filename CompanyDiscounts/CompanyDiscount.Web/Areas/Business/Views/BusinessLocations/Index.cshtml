@@ -1,8 +1,24 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Areas/Business/Views/Shared/_Layout.cshtml";
+﻿@section Styles {
+    @Styles.Render("~/Content/kendo")
 }
-
-<h2>Business Locations Page</h2>
-
+<input type="button" id="AddBusinessLocation" value="Add Location" onclick="window.location.href='@Url.Action("Index", "AddBusinessLocations")'" />
+<hr />
+<h1>Currently Active Businesses</h1>
+@(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Business.Models.BusinessLocationsViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Longitude);
+        columns.Bound(c => c.Latitude);
+        columns.Bound(c => c.BusinessId);
+      })
+      .Pageable()
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Read(read => read.Action("BusinessLocationsViewModels_Read", "BusinessLocations"))
+      )
+)
+@section Scripts {
+    @Scripts.Render("~/bundles/kendo")
+}
