@@ -63,11 +63,13 @@
     <Compile Include="BusinessLocationsServices.cs" />
     <Compile Include="CategoriesServices.cs" />
     <Compile Include="CompaniesServices.cs" />
+    <Compile Include="CompanyBusinessesServices.cs" />
     <Compile Include="Contracts\IBusinessesServices.cs" />
     <Compile Include="Contracts\IBusinessLocationsServices.cs" />
     <Compile Include="Contracts\ICacheService.cs" />
     <Compile Include="Contracts\ICategoriesServices.cs" />
     <Compile Include="Contracts\ICompaniesServices.cs" />
+    <Compile Include="Contracts\ICompanyBusinessesServices.cs" />
     <Compile Include="Contracts\IUsersServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersServices.cs" />

@@ -3,9 +3,7 @@ using System.Web;
 using CompanyDiscount.Web.Areas.Administration.Models;
 using CompanyDiscount.Web.Controllers;
 using CompanyDiscounts.Models;
-using Kendo.Mvc.Extensions;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 
 namespace CompanyDiscount.Web.Areas.Administration.Controllers

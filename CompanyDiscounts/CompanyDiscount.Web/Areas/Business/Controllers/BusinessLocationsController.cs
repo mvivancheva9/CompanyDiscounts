@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using CompanyDiscount.Web.Areas.Administration.Models;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using CompanyDiscount.Web.Areas.Business.Models;
-using CompanyDiscount.Web.Controllers;
 using CompanyDiscount.Web.Infrastructure.Mapping;
 using CompanyDiscounts.Models;
 using CompanyDiscounts.Services.Contracts;
-using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 
 namespace CompanyDiscount.Web.Areas.Business.Controllers

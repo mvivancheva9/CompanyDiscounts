@@ -1,0 +1,12 @@
+﻿@model CompanyDiscount.Web.Areas.Business.Models.BusinessCompaniesViewModel
+
+<div class="row">
+    @Html.LabelFor(model => model.Company.Id, new { @class = "control-label col-md-3 col-md-offset-1 text-right" })
+    @Html.EditorFor(model => model.Company, "CompanyEditor")
+</div>
+<br/>
+<div class="row">
+    @Html.LabelFor(model => model.Discount, new { @class = "control-label col-md-3 col-md-offset-1 text-right" })
+    @Html.EditorFor(model => model.Discount)
+    @Html.ValidationMessageFor(model => model.Discount)
+</div>

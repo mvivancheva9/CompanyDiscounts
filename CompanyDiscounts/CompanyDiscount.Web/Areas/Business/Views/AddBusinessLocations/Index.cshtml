@@ -54,7 +54,9 @@
                     window.location = '@Url.Action("Index", "BusinessLocations")';
                 }
             });*@
-            $.post('@Url.Action("Add", "AddBusinessLocations")', { pins: pins });
+            $.post('@Url.Action("Add", "AddBusinessLocations")', { pins: pins }).then(
+                window.location = '@Url.Action("Index", "BusinessLocations")'
+            );
         }
     </script>
 }

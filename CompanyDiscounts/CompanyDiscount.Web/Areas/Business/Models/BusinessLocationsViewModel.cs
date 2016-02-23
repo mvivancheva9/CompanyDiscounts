@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using System.ComponentModel.DataAnnotations;
 using CompanyDiscount.Web.Infrastructure.Mapping;
 
 namespace CompanyDiscount.Web.Areas.Business.Models

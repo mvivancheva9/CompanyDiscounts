@@ -1,8 +1,5 @@
-﻿using AutoMapper;
-
-namespace CompanyDiscount.Web.Areas.Company.Models
+﻿namespace CompanyDiscount.Web.Areas.Company.Models
 {
-    using System.ComponentModel.DataAnnotations;
     using CompanyDiscounts.Models;
     using Infrastructure.Mapping;
 

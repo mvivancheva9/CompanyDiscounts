@@ -1,0 +1,10 @@
+﻿@*@(Html.Kendo().DropDownList()
+    .Name("Company") // Name of the widget should be the same as the name of the property
+    .DataValueField("Id") // The value of the dropdown is taken from the EmployeeID property
+    .DataTextField("Name") // The text of the items is taken from the EmployeeName property
+    .BindTo((System.Collections.IEnumerable)ViewData["companies"]) // A list of all employees which is populated in the controller
+)*@
+
+@model CompanyDiscount.Web.Areas.Business.Models.BusinessCompaniesViewModel
+
+@Html.DropDownListFor(x => x.Company.Id, new SelectList((System.Collections.IEnumerable)ViewData["companies"], "Id", "Name", 0), new { @class = "col-md-3" })

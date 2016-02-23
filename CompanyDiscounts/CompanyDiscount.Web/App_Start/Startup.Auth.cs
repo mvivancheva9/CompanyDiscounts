@@ -7,9 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
-using CompanyDiscount.Web.Models;
 using CompanyDiscounts.Models;
 using CompanyDiscounts.Data;
 
