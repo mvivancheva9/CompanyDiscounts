@@ -44,6 +44,8 @@ namespace CompanyDiscounts.Services
         {
             this.companyBusinesses.Add(companyBusiness);
 
+            this.companyBusinesses.SaveChanges();
+
             return companyBusiness;
         }
 

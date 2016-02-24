@@ -1,0 +1,32 @@
+﻿@model CompanyDiscount.Web.Areas.Business.Models.BusinessDetailsViewModel
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Areas/Business/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage your business</h2>
+
+@using (Html.BeginForm("Manage", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Category.Id, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(x => x.Category.Id, new SelectList((System.Collections.IEnumerable)ViewData["categories"], "Id", "Name", 0), new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Description, new {@class = "col-md-2 control-label"})
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Description, new {@class = "form-control"})
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Add Company" />
+        </div>
+    </div>
+}
+

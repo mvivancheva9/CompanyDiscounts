@@ -20,6 +20,7 @@ namespace CompanyDiscount.Web.Areas.Business.Models
         public int BusinessId { get; set; }
 
         [UIHint("CompanyEditor")]
+        [HiddenInput(DisplayValue = false)]
         public CompanyViewModel Company { get; set; }
 
         [Required]

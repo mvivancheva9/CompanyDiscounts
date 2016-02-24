@@ -6,6 +6,7 @@ namespace CompanyDiscounts.Models
 {
     public class CompanyBusiness : BaseModel<int>
     {
+        [Key]
         public int Id { get; set; }
 
         public int BusinessId { get; set; }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,40 +6,42 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
+﻿using CompanyDiscount.Web.Areas.Administration.Models;
+﻿using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using CompanyDiscount.Web.Areas.Business.Models;
-using CompanyDiscount.Web.Infrastructure.Mapping;
-using CompanyDiscounts.Models;
-using CompanyDiscounts.Services.Contracts;
-using Microsoft.AspNet.Identity;
+﻿using CompanyDiscount.Web.Infrastructure.Mapping;
+﻿using CompanyDiscounts.Models;
+﻿using CompanyDiscounts.Services.Contracts;
+﻿using Microsoft.Ajax.Utilities;
+﻿using Microsoft.AspNet.Identity;
 
 namespace CompanyDiscount.Web.Areas.Business.Controllers
 {
     public class BusinessCompaniesController : BusinessBaseController
     {
         private readonly ICompanyBusinessesServices companyBusinesses;
-        private readonly ICompaniesServices companies;
         private readonly IBusinessesServices businesses;
+        private readonly ICompaniesServices companies;
         private static int businessId;
 
-        public BusinessCompaniesController(ICompanyBusinessesServices companyBusinesses, IBusinessesServices businesses, ICompaniesServices companies)
+
+        public BusinessCompaniesController(IBusinessesServices businesses, ICompanyBusinessesServices companyBusinesses, ICompaniesServices companies)
         {
-            this.businesses = businesses;
             this.companyBusinesses = companyBusinesses;
+            this.businesses = businesses;
             this.companies = companies;
         }
 
         public ActionResult Index()
         {
             ViewData["companies"] = this.companies.GetAll()
-                  .Select(e => new CompanyViewModel
-                  {
-                      Id = e.Id,
-                      Name = e.Name
-                  })
-                  .OrderBy(e => e.Name);
-
+                 .Select(e => new CompanyViewModel
+                 {
+                     Id = e.Id,
+                     Name = e.Name
+                 })
+                 .OrderBy(e => e.Name);
             return this.View();
         }
 
@@ -51,31 +53,11 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
             DataSourceResult result = businesscompaniesviewmodels.ToDataSourceResult(request, businessCompaniesViewModel => new {
                 Id = businessCompaniesViewModel.Id,
                 BusinessId = businessCompaniesViewModel.BusinessId,
-                Company = businessCompaniesViewModel.Company,
-                Discount = businessCompaniesViewModel.Discount
+                Discount = businessCompaniesViewModel.Discount,
+                Company = businessCompaniesViewModel.Company
             });
 
             return Json(result);
-        }
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult BusinessCompaniesViewModels_Create([DataSourceRequest]DataSourceRequest request, BusinessCompaniesViewModel businessCompaniesViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var entity = new BusinessCompaniesViewModel
-                {
-                    BusinessId = businessCompaniesViewModel.BusinessId,
-                    Company = businessCompaniesViewModel.Company,
-                    Discount = businessCompaniesViewModel.Discount
-                };
-
-                var businessCompanyToAdd = this.Mapper.Map<CompanyBusiness>(entity);
-
-                this.companyBusinesses.Create(businessCompanyToAdd);
-            }
-
-            return Json(new[] { businessCompaniesViewModel }.ToDataSourceResult(request, ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -83,17 +65,15 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
         {
             if (ModelState.IsValid)
             {
-                var entity = new BusinessCompaniesViewModel
+                var entity = new CompanyBusiness()
                 {
                     Id = businessCompaniesViewModel.Id,
-                    BusinessId = businessCompaniesViewModel.BusinessId,
-                    Company = businessCompaniesViewModel.Company,
+                    BusinessId = businessId,
+                    CompanyId = businessCompaniesViewModel.Company.Id,
                     Discount = businessCompaniesViewModel.Discount
                 };
 
-                var businessCompanyToUpdate = this.Mapper.Map<CompanyBusiness>(entity);
-
-                this.companyBusinesses.Update(businessCompanyToUpdate);
+                this.companyBusinesses.Update(entity);
             }
 
             return Json(new[] { businessCompaniesViewModel }.ToDataSourceResult(request, ModelState));
@@ -108,7 +88,6 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
                 {
                     Id = businessCompaniesViewModel.Id,
                     BusinessId = businessCompaniesViewModel.BusinessId,
-                    Company = businessCompaniesViewModel.Company,
                     Discount = businessCompaniesViewModel.Discount
                 };
 
@@ -116,6 +95,34 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
             }
 
             return Json(new[] { businessCompaniesViewModel }.ToDataSourceResult(request, ModelState));
+        }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            ViewData["companies"] = this.companies.GetAll()
+                  .Select(e => new CompanyViewModel
+                  {
+                      Id = e.Id,
+                      Name = e.Name
+                  })
+                  .OrderBy(e => e.Name);
+            return this.View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(BusinessCompaniesViewModel model)
+        {
+            var newBusinessCompany = new CompanyBusiness()
+            {
+                CompanyId = model.Company.Id,
+                Discount = model.Discount,
+                BusinessId = businessId
+            };
+            this.companyBusinesses.Create(newBusinessCompany);
+
+            return this.RedirectToAction("Index");
         }
     }
 }

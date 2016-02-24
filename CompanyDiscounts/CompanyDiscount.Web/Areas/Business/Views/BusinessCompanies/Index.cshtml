@@ -1,19 +1,17 @@
 ﻿@section Styles {
     @Styles.Render("~/Content/kendo")
 }
+<input type="button" id="AddBusinessCompany" value="Add Company" onclick="window.location.href='@Url.Action("Add", "BusinessCompanies")'" />
+<hr />
 @(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Business.Models.BusinessCompaniesViewModel>()
       .Name("grid")
       .Columns(columns =>
       {
-          columns.Bound(c => c.BusinessId);
-          columns.Bound(c => c.Discount);
-          columns.Bound(c => c.Company);
-          columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
+        columns.Bound(c => c.Company.Name);
+        columns.Bound(c => c.Discount);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180);
       })
-      .ToolBar(toolbar => {
-          toolbar.Create();
-      })
-      .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("BusinessCompaniesViewModel").AdditionalViewData((System.Collections.IEnumerable)ViewData["companies"]))
+      .Editable(editable => editable.Mode(GridEditMode.PopUp))
       .Pageable()
       .Sortable(sortable => {
           sortable.SortMode(GridSortMode.SingleColumn);
@@ -23,11 +21,10 @@
           .Ajax()
           .Model(model => model.Id(p => p.Id))
           .Read(read => read.Action("BusinessCompaniesViewModels_Read", "BusinessCompanies"))
-          .Create(create => create.Action("BusinessCompaniesViewModels_Create", "BusinessCompanies"))
           .Update(update => update.Action("BusinessCompaniesViewModels_Update", "BusinessCompanies"))
           .Destroy(destroy => destroy.Action("BusinessCompaniesViewModels_Destroy", "BusinessCompanies"))
       )
-)
+      )
 @section Scripts {
     @Scripts.Render("~/bundles/kendo")
 }

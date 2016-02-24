@@ -1,8 +1,36 @@
-﻿
+﻿@model CompanyDiscount.Web.Areas.Business.Models.BusinessDetailsViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Business/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Your Personal Business Details</h2>
+<div class="row">
+    <label class="col-md-2 control-label"> Business Name: </label>
+    <h4 class="col-md-5">@Model.Name</h4>
+
+</div>
+<div class="row">
+    <label class="col-md-2 control-label"> Business Description: </label>
+    <h4 class="col-md-5">@Model.Description</h4>
+
+</div>
+<div class="row">
+    <label class="col-md-2 control-label"> Business Category: </label>
+    @{
+        if (Model.Category == null)
+        {
+            <h4 class="col-md-5">--</h4>
+        }
+        else {
+            <h4 class="col-md-5">Model.Category.Name</h4>
+        }
+
+    }
+   
+
+</div>
+<hr />
+<input type="button" id="ManageBusiness" value="Manage Details" onclick="window.location.href='@Url.Action("Manage", "Home")'" />
+
 

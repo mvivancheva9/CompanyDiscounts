@@ -267,6 +267,7 @@
     <Compile Include="Areas\Business\Models\BusinessCompaniesViewModel.cs" />
     <Compile Include="Areas\Business\Models\BusinessDetailsViewModel.cs" />
     <Compile Include="Areas\Business\Models\BusinessLocationsViewModel.cs" />
+    <Compile Include="Areas\Business\Models\CategoryViewModel.cs" />
     <Compile Include="Areas\Business\Models\CompanyViewModel.cs" />
     <Compile Include="Areas\Business\Models\PinViewModel.cs" />
     <Compile Include="Areas\Common\Models\Category.cs" />
@@ -539,8 +540,10 @@
     <Content Include="Areas\Business\Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Areas\Business\Views\Shared\EditorTemplates\Url.cshtml" />
     <Content Include="Areas\Business\Views\Shared\EditorTemplates\CompanyEditor.cshtml" />
-    <Content Include="Areas\Business\Views\BusinessCompanies\Index.cshtml" />
     <Content Include="Areas\Business\Views\Shared\EditorTemplates\BusinessCompaniesViewModel.cshtml" />
+    <Content Include="Areas\Business\Views\BusinessCompanies\Index.cshtml" />
+    <Content Include="Areas\Business\Views\BusinessCompanies\Add.cshtml" />
+    <Content Include="Areas\Business\Views\Home\Manage.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
