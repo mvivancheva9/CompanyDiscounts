@@ -6,9 +6,9 @@
     public class EmployeeBusiness
     {
         [Key]
-        public string UserId { get; set; }
+        public int Id { get; set; }
 
-        [ForeignKey("UserId")]
+        [ForeignKey("Id")]
         public Employee Employee { get; set; }
 
         public int BusinessId { get; set; }

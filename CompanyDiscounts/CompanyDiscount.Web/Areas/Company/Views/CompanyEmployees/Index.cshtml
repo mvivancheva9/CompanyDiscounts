@@ -1,0 +1,25 @@
+﻿@section Styles {
+    @Styles.Render("~/Content/kendo")
+}
+<input type="button" id="AddBusinessCompany" value="Add Company" onclick="window.location.href='@Url.Action("Add", "CompanyEmployees")'" />
+<hr />
+@(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Company.Models.EmployeeViewModel>()
+      .Name("grid")
+      .Columns(columns =>
+      {
+        columns.Bound(c => c.Username);
+      })
+      .Pageable()
+      .Sortable(sortable => {
+          sortable.SortMode(GridSortMode.SingleColumn);
+      })
+      .Scrollable()
+      .DataSource(dataSource => dataSource
+          .Ajax()
+          .Read(read => read.Action("EmployeeViewModels_Read", "CompanyEmployees"))
+      )
+)
+
+@section Scripts {
+    @Scripts.Render("~/bundles/kendo")
+}

@@ -1,4 +1,8 @@
-﻿@section Styles {
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Business/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
     @Styles.Render("~/Content/kendo")
 }
 <input type="button" id="AddBusinessCompany" value="Add Company" onclick="window.location.href='@Url.Action("Add", "BusinessCompanies")'" />

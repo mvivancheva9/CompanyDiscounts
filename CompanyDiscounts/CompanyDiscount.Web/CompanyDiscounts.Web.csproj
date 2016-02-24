@@ -271,12 +271,14 @@
     <Compile Include="Areas\Business\Models\CompanyViewModel.cs" />
     <Compile Include="Areas\Business\Models\PinViewModel.cs" />
     <Compile Include="Areas\Common\Models\Category.cs" />
+    <Compile Include="Areas\Company\Controllers\CompanyBaseController.cs" />
+    <Compile Include="Areas\Company\Controllers\CompanyEmployeesController.cs" />
     <Compile Include="Areas\Company\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Company\Controllers\UsersController.cs" />
     <Compile Include="Areas\Company\Models\CompanyUsersAddViewModel.cs" />
     <Compile Include="Areas\Company\Models\CompanyUsersViewModel.cs" />
     <Compile Include="Areas\Business\BusinessAreaRegistration.cs" />
     <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
+    <Compile Include="Areas\Company\Models\EmployeeViewModel.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -487,7 +489,6 @@
     <Content Include="Content\fonts\weathericons-regular-webfont.ttf" />
     <Content Include="Content\fonts\weathericons-regular-webfont.woff" />
     <Content Include="Content\fonts\WeatherIcons-Regular.otf" />
-    <Content Include="Areas\Company\Views\Users\Index.cshtml" />
     <Content Include="Areas\Company\Views\web.config" />
     <Content Include="Areas\Company\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Company\Views\_ViewStart.cshtml" />
@@ -544,6 +545,9 @@
     <Content Include="Areas\Business\Views\BusinessCompanies\Index.cshtml" />
     <Content Include="Areas\Business\Views\BusinessCompanies\Add.cshtml" />
     <Content Include="Areas\Business\Views\Home\Manage.cshtml" />
+    <Content Include="Areas\Company\Views\Home\Manage.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyEmployees\Index.cshtml" />
+    <Content Include="Areas\Company\Views\CompanyEmployees\Add.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -606,6 +610,7 @@
     <Folder Include="Views\BusinessLocations\" />
     <Folder Include="Views\Categories\" />
     <Folder Include="Views\Companies\" />
+    <Folder Include="Views\CompanyEmployees\" />
     <Folder Include="Views\DeleteCompanies\" />
     <Folder Include="Views\DeletedBusinesses\" />
   </ItemGroup>

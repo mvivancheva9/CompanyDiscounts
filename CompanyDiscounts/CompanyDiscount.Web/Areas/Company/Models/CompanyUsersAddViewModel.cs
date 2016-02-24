@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using AutoMapper;
 using CompanyDiscount.Web.Infrastructure.Mapping;
 using CompanyDiscounts.Models;
@@ -7,6 +8,7 @@ namespace CompanyDiscount.Web.Areas.Company.Models
 {
     public class CompanyUsersAddViewModel : IMapFrom<User>, IHaveCustomMappings
     {
+        [HiddenInput(DisplayValue = false)]
         public string Id { get; set; }
 
         [Required]

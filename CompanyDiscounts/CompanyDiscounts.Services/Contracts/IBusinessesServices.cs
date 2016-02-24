@@ -11,6 +11,8 @@
 
         Business UpdateById(int id, string name, string description);
 
+        Business Update(Business business);
+
         Business UpdateDeletedById(int id, string name, string description, bool isDeleted);
 
         Business DeleteById(int id);

@@ -49,6 +49,17 @@
             return companyToUpdate;
         }
 
+        public Company Update(Company company)
+        {
+            var companyToUpdate = this.companies.GetById(company.Id);
+
+            companyToUpdate.Description = company.Description;
+
+            this.companies.SaveChanges();
+
+            return companyToUpdate;
+        }
+
         public Company UpdateDeletedById(int id, string name, string description, bool isDeleted)
         {
             var companyToUpdate = this.companies.GetById(id);
@@ -94,6 +105,13 @@
         public Company GetById(int id)
         {
             return this.companies.GetById(id);
+        }
+
+        public Company GetByUserId(string userId)
+        {
+            var currentBusiness = this.companies.All().Where(b => b.UserId == userId).FirstOrDefault();
+
+            return currentBusiness;
         }
     }
 }

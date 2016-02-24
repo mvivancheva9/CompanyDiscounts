@@ -39,5 +39,23 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Manage(BusinessDetailsViewModel model)
+        {
+            var userId = this.User.Identity.GetUserId();
+            var business = this.businesses.GetByUserId(userId);
+            model.Id = business.Id;
+            var businessToUpdate = new CompanyDiscounts.Models.Business()
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Description = model.Description,
+                CategoryId = model.Category.Id
+            };
+            this.businesses.Update(businessToUpdate);
+            return this.RedirectToAction("Index");
+        }
     }
 }

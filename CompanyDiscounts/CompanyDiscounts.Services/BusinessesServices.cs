@@ -38,6 +38,19 @@ namespace CompanyDiscounts.Services
             return businessToUpdate;
         }
 
+        public Business Update(Business business)
+        {
+            var businessToUpdate = this.businesses.GetById(business.Id);
+
+            businessToUpdate.Description = business.Description;
+
+            businessToUpdate.CategoryId = business.CategoryId;
+
+            this.businesses.SaveChanges();
+
+            return businessToUpdate;
+        }
+
         public Business UpdateDeletedById(int id, string name, string description, bool isDeleted)
         {
             var businessyToUpdate = this.businesses.GetById(id);

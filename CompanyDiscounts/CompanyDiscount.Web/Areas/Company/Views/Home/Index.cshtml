@@ -1,9 +1,19 @@
 ﻿@model CompanyDiscount.Web.ViewModels.Companies.CompanyDetailsViewModel
 @{
     ViewBag.Title = "Admin Company Panel";
+    Layout = "~/Areas/Company/Views/Shared/_Layout.cshtml";
 }
+<h2>Your Personal Company Details</h2>
+<div class="row">
+    <label class="col-md-2 control-label"> Business Name: </label>
+    <h4 class="col-md-5">@Model.Name</h4>
 
-<h2>Admin Company Panel</h2>
-<p>@Model.Name</p>
-<p>@Model.Description</p>
+</div>
+<div class="row">
+    <label class="col-md-2 control-label"> Business Description: </label>
+    <h4 class="col-md-5">@Model.Description</h4>
+
+</div>
+<hr />
+<input type="button" id="ManageBusiness" value="Manage Details" onclick="window.location.href='@Url.Action("Manage", "Home")'" />
 
