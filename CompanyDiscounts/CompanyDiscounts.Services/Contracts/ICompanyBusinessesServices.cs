@@ -18,5 +18,7 @@
         CompanyBusiness GetById(int id);
 
         IQueryable<Business> GetByCompanyId(int id);
+
+        CompanyBusiness GetByCompanyIdBusinessId(int companyId, int businessId);
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using CompanyDiscount.Web.Infrastructure.Mapping;
 
 namespace CompanyDiscount.Web.Areas.Company.Models
@@ -15,7 +10,6 @@ namespace CompanyDiscount.Web.Areas.Company.Models
         public string Username { get; set; }
 
         public int CompanyId { get; set; }
-
 
         public void CreateMappings(IMapperConfiguration configuration)
         {

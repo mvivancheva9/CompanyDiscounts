@@ -26,7 +26,6 @@
         [ForeignKey("CompanyId")]
         public Company Company { get; set; }
 
-        public virtual ICollection<EmployeeBusiness> EmployeeBusinesses { get; set; } 
-
+        public virtual ICollection<EmployeeBusiness> EmployeeBusinesses { get; set; }
     }
 }

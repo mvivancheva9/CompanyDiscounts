@@ -261,7 +261,6 @@
     <Compile Include="Areas\Business\Controllers\AddBusinessLocationsController.cs" />
     <Compile Include="Areas\Business\Controllers\BusinessBaseController.cs" />
     <Compile Include="Areas\Business\Controllers\BusinessCompaniesController.cs" />
-    <Compile Include="Areas\Business\Controllers\BusinessDetailsController.cs" />
     <Compile Include="Areas\Business\Controllers\BusinessLocationsController.cs" />
     <Compile Include="Areas\Business\Controllers\HomeController.cs" />
     <Compile Include="Areas\Business\Models\BusinessCompaniesViewModel.cs" />
@@ -274,6 +273,7 @@
     <Compile Include="Areas\Common\Models\Category.cs" />
     <Compile Include="Areas\Company\Controllers\CompanyBaseController.cs" />
     <Compile Include="Areas\Company\Controllers\CompanyEmployeesController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Areas\Company\Controllers\HomeController.cs" />
     <Compile Include="Areas\Company\Models\CompanyUsersAddViewModel.cs" />
     <Compile Include="Areas\Company\Models\CompanyUsersViewModel.cs" />
@@ -527,7 +527,6 @@
     <Content Include="Areas\Business\Views\Home\Index.cshtml" />
     <Content Include="Areas\Business\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Business\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Business\Views\BusinessDetails\Index.cshtml" />
     <Content Include="Areas\Business\Views\BusinessLocations\Index.cshtml" />
     <Content Include="Areas\Business\Views\AddBusinessLocations\Index.cshtml" />
     <Content Include="Areas\Business\Views\Shared\EditorTemplates\BusinessCategoriesEditor.cshtml" />
@@ -551,6 +550,9 @@
     <Content Include="Areas\Company\Views\Home\Manage.cshtml" />
     <Content Include="Areas\Company\Views\CompanyEmployees\Index.cshtml" />
     <Content Include="Areas\Company\Views\CompanyEmployees\Add.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\BadRequest.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\FrontPageScripts\main.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

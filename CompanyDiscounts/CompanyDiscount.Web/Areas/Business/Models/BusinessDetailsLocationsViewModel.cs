@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CompanyDiscount.Web.Infrastructure.Mapping;
-using CompanyDiscounts.Models;
 
 namespace CompanyDiscount.Web.Areas.Business.Models
 {
@@ -21,6 +16,8 @@ namespace CompanyDiscount.Web.Areas.Business.Models
 
         [Required]
         public string Description { get; set; }
+
+        public int Discount { get; set; }
 
         public ICollection<BusinessLocationsViewModel> BusinessLocations { get; set; }
     }

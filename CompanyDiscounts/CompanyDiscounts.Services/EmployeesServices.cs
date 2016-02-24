@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using CompanyDiscounts.Data.Repositories;
 using CompanyDiscounts.Models;
 using CompanyDiscounts.Services.Contracts;

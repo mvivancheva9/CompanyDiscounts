@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using CompanyDiscount.Web.Areas.Business.Models;
 using CompanyDiscount.Web.Infrastructure.Mapping;
@@ -13,6 +10,7 @@ namespace CompanyDiscount.Web.Controllers
 {
     public class BusinessesController : BaseController
     {
+        private static int currentCompaniesId;
         private readonly IBusinessesServices businesses;
         private readonly ICompanyBusinessesServices companyBusinesses;
         private readonly IEmployeesServices employeeServices;
@@ -23,13 +21,14 @@ namespace CompanyDiscount.Web.Controllers
             this.companyBusinesses = companyBusinesses;
             this.employeeServices = employeeServices;
         }
+
         // GET: Companies
         public ActionResult Index()
         {
             if (this.User.IsInRole("Employee"))
             {
                 var userId = this.User.Identity.GetUserId();
-                var currentCompaniesId = this.employeeServices.GetByUserId(userId).CompanyId;
+                currentCompaniesId = this.employeeServices.GetByUserId(userId).CompanyId;
                 var currentCompanyBusinesses = this.companyBusinesses.GetByCompanyId(currentCompaniesId);
 
                 var list = currentCompanyBusinesses.To<BusinessDetailsLocationsViewModel>();
@@ -40,6 +39,7 @@ namespace CompanyDiscount.Web.Controllers
 
                 return this.View(employeeViewModel);
             }
+
             var businessList = this.businesses.GetAll().To<BusinessDetailsLocationsViewModel>().ToList();
             var viewModel = new BusinessListViewModel
             {
@@ -53,6 +53,7 @@ namespace CompanyDiscount.Web.Controllers
         {
             var business = this.businesses.GetById(id);
             var viewModel = this.Mapper.Map<BusinessDetailsLocationsViewModel>(business);
+            viewModel.Discount = this.companyBusinesses.GetByCompanyIdBusinessId(currentCompaniesId, id).Discount;
             return this.View(viewModel);
         }
     }

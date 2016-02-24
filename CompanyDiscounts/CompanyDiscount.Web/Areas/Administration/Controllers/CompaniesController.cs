@@ -20,25 +20,26 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult CompanyDetailsViewModels_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<CompaniesViewModel> companydetailsviewmodels = this.companies.GetAll().To<CompaniesViewModel>();
-            DataSourceResult result = companydetailsviewmodels.ToDataSourceResult(request, companyDetailsViewModel => new {
+            DataSourceResult result = companydetailsviewmodels.ToDataSourceResult(request, companyDetailsViewModel => new
+            {
                 Id = companyDetailsViewModel.Id,
                 Name = companyDetailsViewModel.Name,
                 Description = companyDetailsViewModel.Description
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult CompanyDetailsViewModels_Create([DataSourceRequest]DataSourceRequest request, CompaniesViewModel companyDetailsViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CompanyDetailsViewModel
                 {
@@ -50,13 +51,13 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                 companyDetailsViewModel.Id = entity.Id;
             }
 
-            return Json(new[] { companyDetailsViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { companyDetailsViewModel }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult CompanyDetailsViewModels_Update([DataSourceRequest]DataSourceRequest request, CompaniesViewModel companyDetailsViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CompaniesViewModel
                 {
@@ -67,13 +68,13 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                 this.companies.UpdateById(entity.Id, entity.Name, entity.Description);
             }
 
-            return Json(new[] { companyDetailsViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { companyDetailsViewModel }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult CompanyDetailsViewModels_Destroy([DataSourceRequest]DataSourceRequest request, CompaniesViewModel companyDetailsViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CompaniesViewModel
                 {
@@ -85,7 +86,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                 this.companies.DeleteById(entity.Id);
             }
 
-            return Json(new[] { companyDetailsViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { companyDetailsViewModel }.ToDataSourceResult(request, this.ModelState));
         }
     }
 }

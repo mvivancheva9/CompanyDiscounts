@@ -9,24 +9,27 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
 {
     public class AddBusinessLocationsController : BusinessBaseController
     {
+        private static int businessId;
         private readonly IBusinessLocationsServices businessLocations;
         private readonly IBusinessesServices businesses;
-        private static int businessId;
 
         public AddBusinessLocationsController(IBusinessLocationsServices businessLocations, IBusinessesServices businesses)
         {
             this.businessLocations = businessLocations;
             this.businesses = businesses;
         }
-        
+
         // GET: Business/AddBusinessLocations
         public ActionResult Index()
         {
             string userId = this.User.Identity.GetUserId();
             var currentBusiness = this.businesses.GetAll().FirstOrDefault(b => b.UserId == userId);
             if (currentBusiness != null)
+            {
                 businessId = currentBusiness.Id;
-            return View();
+            }
+
+            return this.View();
         }
 
         [HttpPost]

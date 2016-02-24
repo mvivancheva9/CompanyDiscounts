@@ -1,7 +1,7 @@
 ﻿@section Styles {
     @Styles.Render("~/Content/kendo")
 }
-<input type="button" id="AddBusinessCompany" value="Add Company" onclick="window.location.href='@Url.Action("Add", "CompanyEmployees")'" />
+<input type="button" id="AddBusinessCompany" value="Add Employee" onclick="window.location.href='@Url.Action("Add", "CompanyEmployees")'" />
 <hr />
 @(Html.Kendo().Grid<CompanyDiscount.Web.Areas.Company.Models.EmployeeViewModel>()
       .Name("grid")

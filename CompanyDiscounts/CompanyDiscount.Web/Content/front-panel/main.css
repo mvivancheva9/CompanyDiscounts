@@ -25,7 +25,11 @@
 		}
 
 	}
-
+    .map {
+    margin-left: 10px;
+    margin-right: 10px;
+        height: 480px;
+}
 	html, body {
 		width: 100%;
 	}

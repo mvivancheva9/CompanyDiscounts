@@ -1,30 +1,21 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-﻿using CompanyDiscount.Web.Areas.Administration.Models;
-﻿using Kendo.Mvc.Extensions;
+using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
 using CompanyDiscount.Web.Areas.Business.Models;
 ﻿using CompanyDiscount.Web.Infrastructure.Mapping;
 ﻿using CompanyDiscounts.Models;
 ﻿using CompanyDiscounts.Services.Contracts;
-﻿using Microsoft.Ajax.Utilities;
-﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity;
 
 namespace CompanyDiscount.Web.Areas.Business.Controllers
 {
     public class BusinessCompaniesController : BusinessBaseController
     {
+        private static int businessId;
         private readonly ICompanyBusinessesServices companyBusinesses;
         private readonly IBusinessesServices businesses;
         private readonly ICompaniesServices companies;
-        private static int businessId;
-
 
         public BusinessCompaniesController(IBusinessesServices businesses, ICompanyBusinessesServices companyBusinesses, ICompaniesServices companies)
         {
@@ -35,7 +26,7 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
 
         public ActionResult Index()
         {
-            ViewData["companies"] = this.companies.GetAll()
+            this.ViewData["companies"] = this.companies.GetAll()
                  .Select(e => new CompanyViewModel
                  {
                      Id = e.Id,
@@ -50,20 +41,21 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
             var userId = this.User.Identity.GetUserId();
             businessId = this.businesses.GetByUserId(userId).Id;
             IQueryable<BusinessCompaniesViewModel> businesscompaniesviewmodels = this.companyBusinesses.GetAll(businessId).To<BusinessCompaniesViewModel>();
-            DataSourceResult result = businesscompaniesviewmodels.ToDataSourceResult(request, businessCompaniesViewModel => new {
+            DataSourceResult result = businesscompaniesviewmodels.ToDataSourceResult(request, businessCompaniesViewModel => new
+            {
                 Id = businessCompaniesViewModel.Id,
                 BusinessId = businessCompaniesViewModel.BusinessId,
                 Discount = businessCompaniesViewModel.Discount,
                 Company = businessCompaniesViewModel.Company
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult BusinessCompaniesViewModels_Update([DataSourceRequest]DataSourceRequest request, BusinessCompaniesViewModel businessCompaniesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CompanyBusiness()
                 {
@@ -76,13 +68,13 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
                 this.companyBusinesses.Update(entity);
             }
 
-            return Json(new[] { businessCompaniesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { businessCompaniesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult BusinessCompaniesViewModels_Destroy([DataSourceRequest]DataSourceRequest request, BusinessCompaniesViewModel businessCompaniesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new BusinessCompaniesViewModel
                 {
@@ -94,13 +86,13 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
                 this.companyBusinesses.DeleteById(entity.Id);
             }
 
-            return Json(new[] { businessCompaniesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { businessCompaniesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
 
         [HttpGet]
         public ActionResult Add()
         {
-            ViewData["companies"] = this.companies.GetAll()
+            this.ViewData["companies"] = this.companies.GetAll()
                   .Select(e => new CompanyViewModel
                   {
                       Id = e.Id,

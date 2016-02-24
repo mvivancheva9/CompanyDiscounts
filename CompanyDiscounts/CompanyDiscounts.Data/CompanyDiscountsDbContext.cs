@@ -18,8 +18,6 @@
 
         public IDbSet<BusinessLocation> BusinessLocation { get; set; }
 
-        public IDbSet<Logo> Logo { get; set; }
-
         public IDbSet<Company> Company { get; set; }
 
         public IDbSet<CompanyBusiness> CompanyBusiness { get; set; }
@@ -35,7 +33,6 @@
             return new CompanyDiscountsDbContext();
         }
 
-
         DbSet<TEntity> ICompanyDiscountsDbContext.Set<TEntity>()
         {
             return base.Set<TEntity>();
@@ -46,7 +43,6 @@
             this.ApplyAuditInfoRules();
             return base.SaveChanges();
         }
-
 
         public void ApplyAuditInfoRules()
         {

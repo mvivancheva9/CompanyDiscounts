@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -31,12 +26,6 @@ namespace CompanyDiscount.Web.Areas.Company.Controllers
             this.UserManager = userManager;
         }
 
-        public ApplicationUserManager UserManager
-        {
-            get { return this.userManager ?? this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>(); }
-            private set { this.userManager = value; }
-        }
-
         public CompanyEmployeesController(IEmployeesServices employees, ICompaniesServices companies, IUsersServices users)
         {
             this.employees = employees;
@@ -44,23 +33,30 @@ namespace CompanyDiscount.Web.Areas.Company.Controllers
             this.users = users;
         }
 
+        public ApplicationUserManager UserManager
+        {
+            get { return this.userManager ?? this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>(); }
+            private set { this.userManager = value; }
+        }
+
         public ActionResult Index()
         {
             var userId = this.User.Identity.GetUserId();
             companyId = this.companies.GetByUserId(userId).Id;
-            return View();
+            return this.View();
         }
 
         public ActionResult EmployeeViewModels_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<EmployeeViewModel> employeeviewmodels = this.employees.GetAll(companyId).To<EmployeeViewModel>();
-            DataSourceResult result = employeeviewmodels.ToDataSourceResult(request, employeeViewModel => new {
+            DataSourceResult result = employeeviewmodels.ToDataSourceResult(request, employeeViewModel => new
+            {
                 Id = employeeViewModel.Id,
                 Username = employeeViewModel.Username,
                 CompanyId = employeeViewModel.CompanyId
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         public ActionResult Add()
@@ -72,7 +68,7 @@ namespace CompanyDiscount.Web.Areas.Company.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Add(CompanyUsersAddViewModel model)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CompanyUsersAddViewModel
                 {
@@ -97,4 +93,3 @@ namespace CompanyDiscount.Web.Areas.Company.Controllers
         }
     }
 }
-

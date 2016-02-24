@@ -13,9 +13,6 @@ namespace CompanyDiscounts.Models
             this.businesses = new HashSet<Business>();
         }
 
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         public string Name { get; set; }
 

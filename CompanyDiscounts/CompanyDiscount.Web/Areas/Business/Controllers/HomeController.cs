@@ -29,7 +29,7 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
 
         public ActionResult Manage()
         {
-            ViewData["categories"] = this.categories.GetAll()
+            this.ViewData["categories"] = this.categories.GetAll()
                 .Select(e => new CategoryViewModel
                 {
                     Id = e.Id,
@@ -37,7 +37,7 @@ namespace CompanyDiscount.Web.Areas.Business.Controllers
                 })
                 .OrderBy(e => e.Name);
 
-            return View();
+            return this.View();
         }
 
         [HttpPost]

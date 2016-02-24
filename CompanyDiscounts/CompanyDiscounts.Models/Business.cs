@@ -8,20 +8,15 @@
     public class Business : BaseModel<int>
     {
         private ICollection<BusinessLocation> businessLocations;
-        private ICollection<Logo> logos;
         private ICollection<CompanyBusiness> companyBusiness;
-        private ICollection<EmployeeBusiness> employeeBusinesses; 
+        private ICollection<EmployeeBusiness> employeeBusinesses;
 
         public Business()
         {
             this.businessLocations = new HashSet<BusinessLocation>();
-            this.logos = new HashSet<Logo>();
             this.companyBusiness = new HashSet<CompanyBusiness>();
             this.employeeBusinesses = new HashSet<EmployeeBusiness>();
         }
-
-        [Key]
-        public int Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
@@ -32,8 +27,6 @@
         public string Description { get; set; }
 
         public virtual ICollection<BusinessLocation> BusinessLocations { get; set; }
-
-        public virtual ICollection<Logo> Logos { get; set; }
 
         public virtual ICollection<CompanyBusiness> CompanyBusinesses { get; set; }
 

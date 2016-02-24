@@ -23,6 +23,7 @@ body a{
 	-ms-transition:0.5s all;
 	text-decoration:none;
 }
+
 a:focus, a:active, a:hover {
     outline: none;
     -webkit-transition: all 0.3s;

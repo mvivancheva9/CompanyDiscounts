@@ -17,7 +17,7 @@ namespace CompanyDiscount.Web.Areas.Company.Controllers
         {
             this.companies = companies;
         }
-       
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -31,9 +31,10 @@ namespace CompanyDiscount.Web.Areas.Company.Controllers
 
             return this.View(viewModel);
         }
+
         public ActionResult Manage()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
@@ -51,6 +52,12 @@ namespace CompanyDiscount.Web.Areas.Company.Controllers
             };
             this.companies.Update(businessToUpdate);
             return this.RedirectToAction("Index");
+        }
+
+        public ActionResult PageNotFound()
+        {
+            this.ViewBag.Message = "Sorry, the page you requested does not exist.";
+            return this.View("Index");
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using CompanyDiscount.Web.Areas.Business.Models;
 using CompanyDiscount.Web.Infrastructure.Mapping;
@@ -18,6 +15,7 @@ namespace CompanyDiscount.Web.Controllers
         {
             this.companies = companies;
         }
+
         // GET: Companies
         public ActionResult Index()
         {

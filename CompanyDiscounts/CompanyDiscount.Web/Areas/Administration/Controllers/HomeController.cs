@@ -2,7 +2,6 @@
 
 namespace CompanyDiscount.Web.Areas.Administration.Controllers
 {
-   
     public class HomeController : AdminBaseController
     {
         // GET: Administration/Home

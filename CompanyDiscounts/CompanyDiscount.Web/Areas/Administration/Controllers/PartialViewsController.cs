@@ -14,23 +14,17 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
 
     public class PartialViewsController : BaseController
     {
+        private static int companyId;
+        private static int businessId;
+        private readonly ICategoriesServices categories;
         private readonly ICompaniesServices companies;
         private readonly IUsersServices users;
         private readonly IBusinessesServices businesses;
         private ApplicationUserManager userManager;
-        private readonly ICategoriesServices categories;
-        private static int companyId;
-        private static int businessId;
 
         public PartialViewsController(ApplicationUserManager userManager)
         {
             this.UserManager = userManager;
-        }
-
-        public ApplicationUserManager UserManager
-        {
-            get { return this.userManager ?? this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>(); }
-            private set { this.userManager = value; }
         }
 
         public PartialViewsController(ICompaniesServices companies, IBusinessesServices businesses, IUsersServices users, ICategoriesServices categories)
@@ -41,16 +35,22 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
             this.categories = categories;
         }
 
+        public ApplicationUserManager UserManager
+        {
+            get { return this.userManager ?? this.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>(); }
+            private set { this.userManager = value; }
+        }
+
         public ActionResult NewCompanies()
         {
             var allCompanies = this.companies.GetAll().Count();
-            return PartialView(allCompanies);
+            return this.PartialView(allCompanies);
         }
 
         public ActionResult NewBusinesses()
         {
             var allBusinesses = this.businesses.GetAll().Count();
-            return PartialView(allBusinesses);
+            return this.PartialView(allBusinesses);
         }
 
         public ActionResult AddCompanyUser(int id)
@@ -58,19 +58,20 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
             companyId = id;
             if (this.companies.GetById(companyId).UserId == null)
             {
-                return View();
+                return this.View();
             }
+
             var currentCompanyUser = this.companies.GetById(companyId).UserId;
             var userDetails = this.users.GetById(currentCompanyUser);
             var userModel = this.Mapper.Map<CompanyUsersAddViewModel>(userDetails);
-            return View("CompanyUserDetails", userModel);
+            return this.View("CompanyUserDetails", userModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddCompanyUser(CompanyUsersAddViewModel companyUsersAddViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CompanyUsersAddViewModel
                 {
@@ -78,7 +79,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                     Password = companyUsersAddViewModel.Password
                 };
 
-                var user = new User { UserName = entity.Email, Email = entity.Email};
+                var user = new User { UserName = entity.Email, Email = entity.Email };
                 var result = await this.UserManager.CreateAsync(user, entity.Password);
 
                 this.UserManager.AddToRole(user.Id, "Company");
@@ -94,19 +95,20 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
             businessId = id;
             if (this.businesses.GetById(businessId).UserId == null)
             {
-                return View();
+                return this.View();
             }
+
             var currentBusinessUser = this.businesses.GetById(businessId).UserId;
             var userDetails = this.users.GetById(currentBusinessUser);
             var userModel = this.Mapper.Map<BusinessUserViewModel>(userDetails);
-            return View("BusinessUserDetails", userModel);
+            return this.View("BusinessUserDetails", userModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddBusinessUser(BusinessUserViewModel businessUserViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new BusinessUserViewModel
                 {
@@ -127,7 +129,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
 
         public ActionResult BusinessCategoriesEditor()
         {
-            ViewData["categories"] = this.categories.GetAll()
+            this.ViewData["categories"] = this.categories.GetAll()
                          .Select(e => new Category
                          {
                              Id = e.Id,
@@ -135,7 +137,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                          })
                          .OrderBy(e => e.Name);
 
-            return View("../../Views/Shared/EditorTemplates/BusinessCategoriesEditor");
+            return this.View("../../Views/Shared/EditorTemplates/BusinessCategoriesEditor");
         }
     }
 }

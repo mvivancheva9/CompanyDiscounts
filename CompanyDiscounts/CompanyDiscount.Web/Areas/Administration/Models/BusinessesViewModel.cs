@@ -17,8 +17,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Models
         [Required]
         public string Description { get; set; }
 
-        [Required]
-        //[UIHint("BusinessCategoriesEditor")]
+        [HiddenInput(DisplayValue = false)]
         public string Category { get; set; }
 
         public void CreateMappings(IMapperConfiguration configuration)

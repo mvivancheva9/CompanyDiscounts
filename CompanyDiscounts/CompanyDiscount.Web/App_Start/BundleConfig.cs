@@ -73,7 +73,6 @@ namespace CompanyDiscount.Web
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                       "~/Scripts/KendoUI/kendo.all.min.js",
                       "~/Scripts/KendoUI/kendo.aspnetmvc.min.js"));
-
         }
     }
 }

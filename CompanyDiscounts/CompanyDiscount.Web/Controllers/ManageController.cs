@@ -23,16 +23,16 @@ namespace CompanyDiscount.Web.Controllers
         {
         }
 
-        public ApplicationUserManager Manager
-        {
-            get { return this.manager; }
-            private set { this.manager = value; }
-        }
-
         public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             this.UserManager = userManager;
             this.SignInManager = signInManager;
+        }
+
+        public ApplicationUserManager Manager
+        {
+            get { return this.manager; }
+            private set { this.manager = value; }
         }
 
         public ApplicationSignInManager SignInManager

@@ -68,7 +68,6 @@
     <Compile Include="Company.cs" />
     <Compile Include="CompanyBusiness.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="Logo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
     <Compile Include="EmployeeBusiness.cs" />

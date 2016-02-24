@@ -20,25 +20,26 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult CategoriesViewModels_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<CategoriesViewModel> categoriesviewmodels = this.cateogries.GetAll().To<CategoriesViewModel>();
-            DataSourceResult result = categoriesviewmodels.ToDataSourceResult(request, categoriesViewModel => new {
+            DataSourceResult result = categoriesviewmodels.ToDataSourceResult(request, categoriesViewModel => new
+            {
                 Id = categoriesViewModel.Id,
                 Name = categoriesViewModel.Name,
                 IsDeleted = categoriesViewModel.IsDeleted
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult CategoriesViewModels_Create([DataSourceRequest]DataSourceRequest request, CategoriesViewModel categoriesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CategoriesViewModel
                 {
@@ -49,13 +50,13 @@
                 categoriesViewModel.Id = entity.Id;
             }
 
-            return Json(new[] { categoriesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { categoriesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult CategoriesViewModels_Update([DataSourceRequest]DataSourceRequest request, CategoriesViewModel categoriesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CategoriesViewModel
                 {
@@ -67,13 +68,13 @@
                 this.cateogries.UpdateById(entity.Id, entity.Name, entity.IsDeleted);
             }
 
-            return Json(new[] { categoriesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { categoriesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult CategoriesViewModels_Destroy([DataSourceRequest]DataSourceRequest request, CategoriesViewModel categoriesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new CategoriesViewModel
                 {
@@ -84,7 +85,7 @@
                 this.cateogries.DeleteById(entity.Id);
             }
 
-            return Json(new[] { categoriesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { categoriesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
     }
 }

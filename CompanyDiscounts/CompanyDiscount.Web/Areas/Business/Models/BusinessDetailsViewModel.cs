@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using AutoMapper;
 using CompanyDiscount.Web.Infrastructure.Mapping;
 
 namespace CompanyDiscount.Web.Areas.Business.Models
@@ -15,7 +14,6 @@ namespace CompanyDiscount.Web.Areas.Business.Models
 
         [Required]
         public string Description { get; set; }
-
 
         public CategoryViewModel Category { get; set; }
     }

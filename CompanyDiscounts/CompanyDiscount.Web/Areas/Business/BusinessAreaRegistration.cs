@@ -2,23 +2,22 @@
 
 namespace CompanyDiscount.Web.Areas.Business
 {
-    public class BusinessAreaRegistration : AreaRegistration 
+    public class BusinessAreaRegistration : AreaRegistration
     {
-        public override string AreaName 
+        public override string AreaName
         {
-            get 
+            get
             {
                 return "Business";
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Business_default",
                 "Business/{controller}/{action}/{id}",
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }
     }
 }

@@ -5,7 +5,6 @@
     using System.Security.Claims;
     using System.Threading.Tasks;
 
-
     public class User : IdentityUser
     {
         public ClaimsIdentity GenerateUserIdentity(UserManager<User> manager)

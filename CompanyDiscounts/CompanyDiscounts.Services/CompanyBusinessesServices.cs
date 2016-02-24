@@ -70,5 +70,13 @@ namespace CompanyDiscounts.Services
         {
             return this.companyBusinesses.All().Where(cb => cb.CompanyId == id).Select(cb => cb.Business);
         }
+
+        public CompanyBusiness GetByCompanyIdBusinessId(int companyId, int businessId)
+        {
+            return
+                this.companyBusinesses
+                    .All()
+                    .FirstOrDefault(cb => (cb.BusinessId == businessId) && (cb.CompanyId == companyId));
+        }
     }
 }

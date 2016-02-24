@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CompanyDiscount.Web.Areas.Business.Models;
-using CompanyDiscounts.Models;
 
 namespace CompanyDiscount.Web.Models
 {

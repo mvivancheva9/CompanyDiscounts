@@ -6,7 +6,7 @@ using CompanyDiscounts.Services.Contracts;
 
 namespace CompanyDiscounts.Services
 {
-    public class CategoriesServices :ICategoriesServices
+    public class CategoriesServices : ICategoriesServices
     {
         private IRepository<Category> categories;
 

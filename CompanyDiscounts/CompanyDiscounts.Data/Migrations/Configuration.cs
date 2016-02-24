@@ -35,8 +35,7 @@ namespace CompanyDiscounts.Data.Migrations
               new IdentityRole { Name = "Admin" },
               new IdentityRole { Name = "Company" },
               new IdentityRole { Name = "Business" },
-              new IdentityRole { Name = "Employee" }
-            );
+              new IdentityRole { Name = "Employee" });
 
             context.SaveChanges();
             if (!context.Users.Where(u => u.UserName == "admin@admin.com").Any())

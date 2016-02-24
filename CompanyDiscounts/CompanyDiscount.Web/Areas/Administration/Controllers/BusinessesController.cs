@@ -21,7 +21,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult BusinessesViewModels_Read([DataSourceRequest]DataSourceRequest request)
@@ -31,67 +31,63 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
             {
                 Id = businessesViewModel.Id,
                 Name = businessesViewModel.Name,
-                Description = businessesViewModel.Description,
-                Category = businessesViewModel.Category
+                Description = businessesViewModel.Description
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult BusinessesViewModels_Create([DataSourceRequest]DataSourceRequest request, BusinessesViewModel businessesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new BusinessesViewModel
                 {
                     Name = businessesViewModel.Name,
-                    Description = businessesViewModel.Description,
-                    Category = businessesViewModel.Category
+                    Description = businessesViewModel.Description
                 };
 
                 this.businesses.Create(entity.Name, entity.Description);
                 businessesViewModel.Id = entity.Id;
             }
 
-            return Json(new[] { businessesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { businessesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult BusinessesViewModels_Update([DataSourceRequest]DataSourceRequest request, BusinessesViewModel businessesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new BusinessesViewModel
                 {
                     Id = businessesViewModel.Id,
                     Name = businessesViewModel.Name,
-                    Description = businessesViewModel.Description,
-                    Category = businessesViewModel.Category
+                    Description = businessesViewModel.Description
                 };
                 this.businesses.UpdateById(entity.Id, entity.Name, entity.Description);
             }
 
-            return Json(new[] { businessesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { businessesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult BusinessesViewModels_Destroy([DataSourceRequest]DataSourceRequest request, BusinessesViewModel businessesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new BusinessesViewModel
                 {
                     Id = businessesViewModel.Id,
                     Name = businessesViewModel.Name,
-                    Description = businessesViewModel.Description,
-                    Category = businessesViewModel.Category
+                    Description = businessesViewModel.Description
                 };
 
                 this.businesses.DeleteById(entity.Id);
             }
 
-            return Json(new[] { businessesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { businessesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
     }
 }

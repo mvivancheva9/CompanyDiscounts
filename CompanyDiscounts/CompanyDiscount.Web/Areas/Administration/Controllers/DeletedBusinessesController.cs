@@ -19,26 +19,27 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult DeletedBusinessesViewModels_Read([DataSourceRequest]DataSourceRequest request)
         {
             IQueryable<DeletedBusinessesViewModel> deletedbusinessesviewmodels = this.businesses.GetDeleted().To<DeletedBusinessesViewModel>();
-            DataSourceResult result = deletedbusinessesviewmodels.ToDataSourceResult(request, deletedBusinessesViewModel => new {
+            DataSourceResult result = deletedbusinessesviewmodels.ToDataSourceResult(request, deletedBusinessesViewModel => new
+            {
                 Id = deletedBusinessesViewModel.Id,
                 Name = deletedBusinessesViewModel.Name,
                 Description = deletedBusinessesViewModel.Description,
                 IsDeleted = deletedBusinessesViewModel.IsDeleted
             });
 
-            return Json(result);
+            return this.Json(result);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult DeletedBusinessesViewModels_Update([DataSourceRequest]DataSourceRequest request, DeletedBusinessesViewModel deletedBusinessesViewModel)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
                 var entity = new DeletedBusinessesViewModel
                 {
@@ -50,7 +51,7 @@ namespace CompanyDiscount.Web.Areas.Administration.Controllers
                 this.businesses.UpdateDeletedById(entity.Id, entity.Name, entity.Description, entity.IsDeleted);
             }
 
-            return Json(new[] { deletedBusinessesViewModel }.ToDataSourceResult(request, ModelState));
+            return this.Json(new[] { deletedBusinessesViewModel }.ToDataSourceResult(request, this.ModelState));
         }
     }
 }

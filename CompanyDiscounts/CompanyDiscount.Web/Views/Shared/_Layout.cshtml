@@ -23,7 +23,26 @@
             <div class="collapse navbar-collapse js-navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Businesses", "Index", "Businesses")</li>
-                    <li>@Html.ActionLink("Companies", "Index", "Companies")</li>
+                    @if (this.User.IsInRole("Employee"))
+                    {
+                        
+                    }
+                    else if (this.User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Home", new {area = "Administration"}, null)</li>
+                    }
+                    else if (this.User.IsInRole("Business"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Home", new { area = "Business" }, null)</li>
+                    }
+                    else if (this.User.IsInRole("Company"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Home", new {area = "Company"}, null)</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Companies", "Index", "Companies")</li>
+                    }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.Partial("_LoginPartial")</li>
