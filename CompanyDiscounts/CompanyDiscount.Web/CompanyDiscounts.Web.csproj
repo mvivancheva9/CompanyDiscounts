@@ -265,6 +265,7 @@
     <Compile Include="Areas\Business\Controllers\BusinessLocationsController.cs" />
     <Compile Include="Areas\Business\Controllers\HomeController.cs" />
     <Compile Include="Areas\Business\Models\BusinessCompaniesViewModel.cs" />
+    <Compile Include="Areas\Business\Models\BusinessDetailsLocationsViewModel.cs" />
     <Compile Include="Areas\Business\Models\BusinessDetailsViewModel.cs" />
     <Compile Include="Areas\Business\Models\BusinessLocationsViewModel.cs" />
     <Compile Include="Areas\Business\Models\CategoryViewModel.cs" />
@@ -602,6 +603,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Businesses\Index.cshtml" />
     <Content Include="Views\Companies\Index.cshtml" />
+    <Content Include="Views\Businesses\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

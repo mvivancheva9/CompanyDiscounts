@@ -16,5 +16,7 @@ namespace CompanyDiscounts.Services.Contracts
         Employee Create(Employee employee);
 
         Employee GetById(int id);
+
+        Employee GetByUserId(string id);
     }
 }

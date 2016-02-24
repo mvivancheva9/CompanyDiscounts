@@ -1,0 +1,45 @@
+﻿@model CompanyDiscount.Web.Areas.Business.Models.BusinessDetailsLocationsViewModel
+@{
+    ViewBag.Title = "Detials";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<p>@Model.Description</p>
+
+<div id="map_canvas" style="width: 640px; height: 480px;"></div>
+
+@section Scripts {
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+
+        var pin = [
+            @string.Join(",", Model.BusinessLocations.Select(x => "{ lat:" + x.Latitude + ", lng:" + x.Longitude + " }"))
+        ];
+
+        $(document).ready(function() {
+            initialize();
+        });
+
+        function initialize() {
+            var mapOptions = {
+                center: new google.maps.LatLng(42.696552, 23.32601),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+
+            };
+            var map = new google.maps.Map(document.getElementById("map_canvas"),
+                mapOptions);
+
+            $.each(pin, function(i, item) {
+                var marker = new google.maps.Marker({
+                    'position': new google.maps.LatLng(item.lat, item.lng),
+                    'map': map
+                });
+
+                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+            });
+        }
+    </script>
+}
+

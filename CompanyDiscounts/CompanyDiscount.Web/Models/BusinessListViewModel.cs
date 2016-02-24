@@ -9,6 +9,6 @@ namespace CompanyDiscount.Web.Models
 {
     public class BusinessListViewModel
     {
-        public IEnumerable<BusinessDetailsViewModel> Businesses { get; set; }
+        public IEnumerable<BusinessDetailsLocationsViewModel> Businesses { get; set; }
     }
 }

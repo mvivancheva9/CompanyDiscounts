@@ -14,7 +14,7 @@
                     <div class="well">
                         @if (this.User.IsInRole("Employee"))
                         {
-                            <h4><a href="#" class="text-primary">@business.Name</a></h4>
+                            <h4>@Html.ActionLink(business.Name, "Details", "Businesses" , new {id = business.Id}, new {})</h4>
                         }
                         else
                         {

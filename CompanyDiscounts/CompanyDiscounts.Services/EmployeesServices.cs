@@ -43,5 +43,10 @@ namespace CompanyDiscounts.Services
         {
             return this.employees.GetById(id);
         }
+
+        public Employee GetByUserId(string id)
+        {
+            return this.employees.All().FirstOrDefault(e => e.UserId == id);
+        }
     }
 }

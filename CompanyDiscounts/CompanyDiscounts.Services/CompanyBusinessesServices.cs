@@ -65,5 +65,10 @@ namespace CompanyDiscounts.Services
         {
             return this.companyBusinesses.GetById(id);
         }
+
+        public IQueryable<Business> GetByCompanyId(int id)
+        {
+            return this.companyBusinesses.All().Where(cb => cb.CompanyId == id).Select(cb => cb.Business);
+        }
     }
 }

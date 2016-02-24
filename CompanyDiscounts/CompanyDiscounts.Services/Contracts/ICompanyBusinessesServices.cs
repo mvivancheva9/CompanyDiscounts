@@ -16,5 +16,7 @@
         CompanyBusiness Update(CompanyBusiness companyBusiness);
 
         CompanyBusiness GetById(int id);
+
+        IQueryable<Business> GetByCompanyId(int id);
     }
 }
