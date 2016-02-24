@@ -21,6 +21,7 @@ namespace CompanyDiscount.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "CompanyDiscount.Web.Controllers" });
+           
         }
     }
 }

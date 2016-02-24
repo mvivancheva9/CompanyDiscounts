@@ -279,9 +279,10 @@
     <Compile Include="Areas\Business\BusinessAreaRegistration.cs" />
     <Compile Include="Areas\Company\CompanyAreaRegistration.cs" />
     <Compile Include="Areas\Company\Models\EmployeeViewModel.cs" />
-    <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BusinessesController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -293,6 +294,8 @@
     <Compile Include="Infrastructure\Mapping\IMapTo.cs" />
     <Compile Include="Infrastructure\Mapping\QueryableExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BusinessListViewModel.cs" />
+    <Compile Include="Models\CompaniesListViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -418,7 +421,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Areas\Employee\Views\web.config" />
     <Content Include="Areas\Business\Views\web.config" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
@@ -598,21 +600,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Businesses\Index.cshtml" />
+    <Content Include="Views\Companies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\AdminBase\" />
-    <Folder Include="Areas\Employee\Controllers\" />
-    <Folder Include="Areas\Employee\Models\" />
-    <Folder Include="Areas\Employee\Views\Shared\" />
-    <Folder Include="Views\BusinessCompanies\" />
-    <Folder Include="Views\Businesses\" />
-    <Folder Include="Views\BusinessLocations\" />
-    <Folder Include="Views\Categories\" />
-    <Folder Include="Views\Companies\" />
-    <Folder Include="Views\CompanyEmployees\" />
-    <Folder Include="Views\DeleteCompanies\" />
-    <Folder Include="Views\DeletedBusinesses\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
